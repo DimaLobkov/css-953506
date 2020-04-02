@@ -6,10 +6,8 @@ namespace _3_2
     {
         protected string name;   
         protected int age;          
-
-    //-------- свойства класса ----------
+        //-------- свойства класса ----------
         public string Name { set; get; }
-       
         public int Age
         {
             set
@@ -23,13 +21,11 @@ namespace _3_2
             }
         }
     }
-
     public class Student : Person
     {
         protected string speciality;
         protected int numbergroup;     
         protected int oplata;  
-
         //статическиt св-ва класса -  подсчет количества  Student
         protected static int counter = 0;
         public Student()
@@ -43,9 +39,6 @@ namespace _3_2
                 return counter;
             }
         }
-
-
-
         public void Filling(string name, int age, string speciality, int numbergroup)    // полное заполнение 
         {
             this.name = name;
@@ -53,13 +46,11 @@ namespace _3_2
             this.speciality = speciality;
             this.numbergroup = numbergroup;
         }
-
         public void Filling(string speciality, int numbergroup)  // перегруженный метод для сокр. заполнения
         {
             this.speciality = speciality;
             this.numbergroup = numbergroup;
         }
-
         public double dolshen()
         {
             if (speciality == "ИиТП") oplata = 980;       
@@ -68,16 +59,12 @@ namespace _3_2
             else if (speciality == "Асои") oplata = 720;    
             else oplata = 0;    //не учишься в BSUIR(
             return oplata;    
-          
-        }
-
+                  }
         public void Info()
         {
             double need = dolshen();
-
-            if (name != null && age != 0) Console.WriteLine("Имя: {0}\t \nВозраст: {1} \t", name, age.ToString());
+           if (name != null && age != 0) Console.WriteLine("Имя: {0}\t \nВозраст: {1} \t", name, age.ToString());
             Console.WriteLine("Специальность: {0} \t Оплата: {1} \t Ноиер группы {2}", speciality, oplata.ToString(), numbergroup.ToString());
-           
         }
     }
     class Program
