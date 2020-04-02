@@ -1,0 +1,139 @@
+using System;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TipaCalculiator
+{
+    class Program
+    {
+        public static int length = 0;        
+        public static string expressions;       
+        public static int action = 0;     
+        public static double numder;        
+        public static string[] doublestring;   
+        public static int iii = 0;          
+        public static double answer = 0;
+        
+        static void Main(string[] args)
+        {
+            expressions = Console.ReadLine();
+            String pattern = @"(\d+)[-+*/](\d+)([-+*/](\d+))*";
+            
+                foreach (Match m in Regex.Matches(expressions, pattern))
+                {
+                    length = expressions.Length;
+                    Separate();
+                    Calc();
+                    Console.WriteLine($"Ответ: {answer}");
+                    Console.WriteLine("Press Any Key...");
+                    Console.ReadKey();
+                }
+        }
+        
+        public static void Separate()
+        {
+            if (iii < length && expressions[iii] == '+')
+            {
+                CalcPL();   
+            }
+            if (iii < length && expressions[iii] == '-')
+            {
+                CalcMI();   
+            }
+            if (iii < length && expressions[iii] == '*')
+            {
+                CalcYMN();  
+            }
+            if (iii < length && expressions[iii] == '/')
+            {
+                CalcDEL();  
+            }
+            if (iii < length)
+            {
+                iii += 1;       
+                Separate();
+            }
+            if (iii == length)
+            {
+                numder = Convert.ToDouble(doublestring[1]); 
+            }
+        }
+        
+        public static void CalcPL()
+        {
+            doublestring = expressions.Split(new char[] { '+' }, 2);
+            numder = Convert.ToDouble(doublestring[0]);
+            expressions = doublestring[1];
+            length = expressions.Length;                             
+            Calc();
+            action = 1;                                       
+            iii = 0;                                           
+        }
+        
+        public static void CalcMI()
+        {
+            doublestring = expressions.Split(new char[] { '-' }, 2);
+            numder = Convert.ToDouble(doublestring[0]);
+            expressions = doublestring[1];
+            length = expressions.Length;                             
+            Calc();
+            action = 2;                                       
+            iii = 0;                                           
+        }
+        
+        public static void CalcYMN()
+        {
+            doublestring = expressions.Split(new char[] { '*' }, 2);
+            numder = Convert.ToDouble(doublestring[0]);
+            expressions = doublestring[1];
+            length = expressions.Length;                             
+            Calc();
+            action = 3;                                       
+            iii = 0;                                            
+        }
+        
+        public static void CalcDEL()
+        {
+            doublestring = expressions.Split(new char[] { '/' }, 2);
+            numder = Convert.ToDouble(doublestring[0]);
+            expressions = doublestring[1];
+            length = expressions.Length;                             
+            Calc();
+            action = 4;                                       
+            iii = 0;                                            
+        }
+        
+        public static void Calc()                              
+        {
+            iii = 0;                                            
+            switch (action)
+            {
+                case 1:
+                    answer = answer + numder;                     
+                    break;
+                case 2:
+                    answer = answer - numder;                     
+                    break;
+                case 3:
+                    answer = answer * numder;                     
+                    break;
+                case 4:
+                    if (numder == 0)                            
+                    {
+                        Console.WriteLine("На ноль делить нельзя!");
+                        Console.WriteLine("Press Any Key...");
+                        Console.ReadKey();
+                        Environment.Exit(0);                    
+                    }
+                    else answer = answer / numder;                
+                    break;
+                default:
+                    answer = numder;                             
+                    break;
+            }
+        }
+    }
+}
