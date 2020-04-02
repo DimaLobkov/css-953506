@@ -1,0 +1,33 @@
+using System;
+using System.Globalization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string culture;
+            Console.WriteLine("Выберите язык(например fr, pl, cn): ");
+            culture = Console.ReadLine();
+            if (culture == "fr") CultureInfo.CurrentCulture = new CultureInfo("fr-FR", false);
+            if (culture == "pl") CultureInfo.CurrentCulture = new CultureInfo("pl-PL", false);
+            if (culture == "cn") CultureInfo.CurrentCulture = new CultureInfo("zh-CHS", false);
+            if (culture == "jp") CultureInfo.CurrentCulture = new CultureInfo("ja-JP", false);
+            if (culture == "ru") CultureInfo.CurrentCulture = new CultureInfo("ru-RU", false);
+            if (culture == "en") CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
+            if (culture == "ger") CultureInfo.CurrentCulture = new CultureInfo("de-DE", false);
+            if (culture == "fj") CultureInfo.CurrentCulture = new CultureInfo("fj-FJ", false);
+            string[] names = DateTimeFormatInfo.CurrentInfo.MonthNames;
+            
+             for (int j = 0; j < 12; j++)
+              {
+                 Console.Write("\n" + names[j]);
+              }
+        }
+    }
+}
