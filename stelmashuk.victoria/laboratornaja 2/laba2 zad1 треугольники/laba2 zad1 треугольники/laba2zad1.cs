@@ -10,7 +10,7 @@ namespace laba2_zad1_треугольники
             string otvet2;
             do
             {
-                string a1, b1, c1; //h1, S1, P1, p1, r11, r21, alpha1, beta1, sigma1;
+                string a1, b1, c1; 
                 string otvet;
                 Console.WriteLine("Введите длины сторон: ");
                 do
