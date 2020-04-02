@@ -20,17 +20,19 @@ namespace TipaCalculiator
         static void Main(string[] args)
         {
             expressions = Console.ReadLine();
-            String pattern = @"(\d+)[-+*/](\d+)([-+*/](\d+))*";
+            String pattern = @"\d+[-+*/]\d+([-+*/]\d+)*";
             
-                foreach (Match m in Regex.Matches(expressions, pattern))
+                if (Regex.IsMatch(expressions, pattern, RegexOptions.IgnoreCase))
                 {
                     length = expressions.Length;
                     Separate();
                     Calc();
                     Console.WriteLine($"Ответ: {answer}");
                     Console.WriteLine("Press Any Key...");
-                    Console.ReadKey();
                 }
+                else Console.WriteLine("Выражение введено неправильно!");
+                
+            Console.ReadKey();
         }
         
         public static void Separate()
