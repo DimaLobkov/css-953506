@@ -54,7 +54,6 @@ class People
         {
             university = value;
         }
-
     }
     public double Step
     {
@@ -72,7 +71,6 @@ class People
         Console.WriteLine($"Университет:{university}");
         Console.WriteLine($"Специальность:{spesialty}");
         Console.WriteLine($"Средний балл:{middleMark}\n");
-
     }
      public void ShowUniver()
     {
@@ -208,7 +206,6 @@ namespace SiSharpLaba3
                                     sum = +people[index].Step;
                                     count++;
                                 }
-                               
                             }
                             Console.WriteLine($"Средняя степендия:{sum / count}$");
                             break;
