@@ -10,16 +10,13 @@ class People
     private string spesialty;
     private double middleMark;
     private double step;
-
     //-------------------------------конструкторы
     public People()
     {
         currentYear = 2020;
-
     }
-    public People(int birthYear)
+    public People(int birthYear):this()
     {
-        currentYear = 2020;
         this.birthYear = birthYear;
         age = currentYear - birthYear;
     }
@@ -37,7 +34,8 @@ class People
     }
     //--------------------------------свойства
     public string Name
-    { get
+    { 
+        get
         {
             return name;
         }
@@ -137,7 +135,6 @@ namespace SiSharpLaba3
                     Console.WriteLine("Введите средний балл:");
                     result = double.TryParse(Console.ReadLine(), out middle_mark );
                 } while (!result || (middle_mark >10.0 || middle_mark<0.0));
-
                 people[index] = new People(name, surname, birth_year, university, specialty,middle_mark);
                 do 
                 {
