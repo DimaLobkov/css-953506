@@ -8,6 +8,7 @@ namespace ConsoleApp2
         {
             chyslo = 3; 
         }
+        
         static void Main(string[] args)
         {
             int chyslo; 
