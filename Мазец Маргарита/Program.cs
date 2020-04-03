@@ -100,8 +100,6 @@ class People
     }
 }
 
-
-
 namespace SiSharpLaba3
 {
     class Program
