@@ -1,5 +1,5 @@
 using System;
-class People
+class Person
 {
     //----------------------------------------------поля
     private string _name, _surname;
@@ -11,17 +11,17 @@ class People
     private double _middleMark;
     private double _step;
     //-------------------------------конструкторы
-    public People()
+    public Person()
     {
         _currentYear = 2020;
     }
-    public People(int birthYear) 
+    public Person(int birthYear) 
     {
         _currentYear = 2020;
         _birthYear = birthYear;
         _age = _currentYear - birthYear;
     }
-    public People(string name, string surname, int birthYear) 
+    public Person(string name, string surname, int birthYear) 
     {
         _currentYear = 2020;
         _birthYear = birthYear;
@@ -29,7 +29,7 @@ class People
         _name = name;
         _surname = surname;
     }
-    public People(string name, string surname, int birthYear, string university, string spesialty, double middleMark) 
+    public Person(string name, string surname, int birthYear, string university, string spesialty, double middleMark) 
     {
         _currentYear = 2020;
         _birthYear = birthYear;
@@ -103,23 +103,23 @@ class People
         Console.WriteLine($"{_name} получает степендию равную {_step}");
     }
 }
-class Person
+class People
 {
     public static int max;
-    People[] people;
-    public Person()
+    Person[] person;
+    public People()
     {
-        people = new People[max];
+        person = new Person[max];
     }
-    public People this[int index]
+    public Person this[int index]
     {
         get
         {
-            return people[index];
+            return person[index];
         }
         set
         {
-            people[index] = value;
+            person[index] = value;
         }
     }
 }
@@ -139,7 +139,7 @@ namespace SiSharpLaba3
                 Console.WriteLine("Какое максимальное количество студентов? ");
                 result = int.TryParse(Console.ReadLine(), out max);
             } while (!result);
-            Person person = new Person();
+            People people = new People();
             for (int index = 0; index < max; index++)
             {
                 counter++;
@@ -161,7 +161,7 @@ namespace SiSharpLaba3
                     Console.WriteLine("Введите средний балл:");
                     result = double.TryParse(Console.ReadLine(), out middle_mark);
                 } while (!result || (middle_mark > 10.0 || middle_mark < 0.0));
-                person[index] = new People(name, surname, birth_year, university, specialty, middle_mark);
+                people[index] = new Person(name, surname, birth_year, university, specialty, middle_mark);
                 do
                 {
                     Console.WriteLine("Продолжить ввод? 1-да, 2-нет");
@@ -187,7 +187,7 @@ namespace SiSharpLaba3
                         {
                             Console.Clear();
                             for (int index = 0; index < counter; index++)
-                                person[index].WriteInformation();
+                                people[index].WriteInformation();
                             break;
                         }
                     case 2:
@@ -196,8 +196,8 @@ namespace SiSharpLaba3
                             Console.WriteLine("введите название учебного заведения:");
                             sort_university = Console.ReadLine();
                             for (int index = 0; index < counter; index++)
-                                if (person[index].University == sort_university)
-                                    person[index].ShowUniver();
+                                if (people[index].University == sort_university)
+                                    people[index].ShowUniver();
                             break;
                         }
                     case 3:
@@ -206,8 +206,8 @@ namespace SiSharpLaba3
                             Console.WriteLine("введите имя студента:");
                             name_seach = Console.ReadLine();
                             for (int index = 0; index < counter; index++)
-                                if (person[index].Name == name_seach)
-                                    person[index].WriteInformation();
+                                if (people[index].Name == name_seach)
+                                    people[index].WriteInformation();
                             break;
                         }
                     case 4:
@@ -216,8 +216,8 @@ namespace SiSharpLaba3
                             Console.WriteLine("введите имя студента:");
                             name_seach = Console.ReadLine();
                             for (int index = 0; index < counter; index++)
-                                if (person[index].Name == name_seach)
-                                    person[index].Calculate_the_scholarship();
+                                if (people[index].Name == name_seach)
+                                    people[index].Calculate_the_scholarship();
                             break;
                         }
                     case 5:
@@ -229,9 +229,9 @@ namespace SiSharpLaba3
                             int count = 0;
                             for (int index = 0; index < counter; index++)
                             {
-                                if (person[index].University == sort_university)
+                                if (people[index].University == sort_university)
                                 {
-                                    sum = +person[index].Step;
+                                    sum = +people[index].Step;
                                     count++;
                                 }
                             }
