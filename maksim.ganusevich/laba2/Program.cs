@@ -15,26 +15,26 @@ namespace _1
             {
                 ulong counter0 = 1;
 
-                while (end >= counter0) 
+                while (end - counter0>=counter0) 
                 {
                     counter0 *= 2;
                 }
                 
-                end -= counter0 / 2;
-                counter += (counter0 / 2 - 1);
+                end -= counter0;
+                counter += (counter0 - 1);
             }
 
             while (begin > 1)
             {
                 ulong counter0 = 1;
 
-                while (begin >= counter0)
+                while (begin - counter0>=counter0)
                 {
                     counter0 *= 2;
                 }
      
-                begin -= counter0 /2;
-                counter -= (counter0 /2 - 1);
+                begin -= counter0;
+                counter -= (counter0 - 1);
             }
             if (counter >= 0)
                 Console.WriteLine(Convert.ToString(counter));
