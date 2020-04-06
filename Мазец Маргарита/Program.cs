@@ -271,7 +271,7 @@ namespace SiSharpLaba3
                         {
                             Console.Clear();
                             Console.WriteLine("Введите число ещё раз:");
-                            int.TryParse(Console.ReadLine(), out menu);
+                            menu=ToInt32(Console.ReadLine());
                             break;
                         }
                 }
