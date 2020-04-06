@@ -8,9 +8,9 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static int Score = 0;
-        static int checkCellValues = 0;
-        static int Zero = 0;
+        int Score = 0;
+        int checkCellValues = 0;
+        int Zero = 0;
         static void Main(string[] args)
         {
             int[,] PlayWindow = new int[4, 4];
@@ -77,6 +77,7 @@ namespace ConsoleApp1
 
             }
         }
+
         static void getMass(int[,] arr)
         {
             Console.Clear();
@@ -89,6 +90,7 @@ namespace ConsoleApp1
             Console.WriteLine($"\n\t Score = {Score}");
             Console.Write("\t Us arrow to move\n\tPress Esc to exit");
         }
+
         static void getLoos(int[,] arr)
         {
             Console.Clear();
@@ -101,6 +103,7 @@ namespace ConsoleApp1
             Console.WriteLine($"\n\t Score = {Score}");
             Console.Write("\t GAME OVER!!! GG");
         }
+
         static void Swap<T>(ref T lhs, ref T rhs)
         {
             T temp;
@@ -131,6 +134,7 @@ namespace ConsoleApp1
                         if (arr[i - 1, j] == 0)
                             Swap(ref arr[i, j], ref arr[i - 1, j]);
         }
+
         static void Lefting(int[,] arr)
         {
             for (int k = 0; k < 3; k++)
@@ -153,6 +157,7 @@ namespace ConsoleApp1
                         if (arr[i, j - 1] == 0)
                             Swap(ref arr[i, j], ref arr[i, j - 1]);
         }
+
         static void Righting(int[,] arr)
         {
             for (int k = 0; k < 3; k++)
@@ -175,6 +180,7 @@ namespace ConsoleApp1
                         if (arr[i, j + 1] == 0)
                             Swap(ref arr[i, j], ref arr[i, j + 1]);
         }
+
         static void Downing(int[,] arr)
         {
 

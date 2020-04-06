@@ -1,0 +1,19 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Funk(out int chyslo)
+        {
+            chyslo = 3; 
+        }
+        
+        static void Main(string[] args)
+        {
+            int chyslo; 
+            Funk(out chyslo);
+            Console.WriteLine("Число:{0}", chyslo);
+        }
+    }
+}

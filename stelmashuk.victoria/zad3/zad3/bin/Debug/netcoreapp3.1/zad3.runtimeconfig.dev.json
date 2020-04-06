@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\polivek\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\polivek\\.nuget\\packages"
+    ]
+  }
+}

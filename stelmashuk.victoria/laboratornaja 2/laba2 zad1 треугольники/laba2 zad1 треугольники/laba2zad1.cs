@@ -10,7 +10,7 @@ namespace laba2_zad1_треугольники
             string otvet2;
             do
             {
-                string a1, b1, c1; //h1, S1, P1, p1, r11, r21, alpha1, beta1, sigma1;
+                string a1, b1, c1; 
                 string otvet;
                 Console.WriteLine("Введите длины сторон: ");
                 do
@@ -19,7 +19,6 @@ namespace laba2_zad1_треугольники
                     b1 = Console.ReadLine();
                     c1 = Console.ReadLine();
                     double a, b, c;
-
                     if (!Double.TryParse(a1, out a))
                     {
                         Console.WriteLine("Ошибка ввода");//обработка, если не число 
@@ -32,7 +31,6 @@ namespace laba2_zad1_треугольники
                     {
                         Console.WriteLine("Ошибка ввода");//обработка, если не число 
                     }
-
                     if (a + b > c && a + c > b && b + c > a)
                     {
                         Console.WriteLine("Треугольник существует, поэтому выполняем вычисления: ");
@@ -53,13 +51,9 @@ namespace laba2_zad1_треугольники
                         cosa = (Math.Acos(cosa) * 180) / Math.PI;
                         cosb = (Math.Acos(cosb) * 180) / Math.PI;
                         cosc = (Math.Acos(cosc) * 180) / Math.PI;
-
                         double r, R;//r-радиус вписанной окружност,R-радиус описанной окружности
-
                         R = (a * b * c) / (4 * l);// l= Math.Sqrt(k);  k = p * (p - a) * (p - b) * (p - c);
                         r = Math.Sqrt(((p - a) * (p - b) * (p - b)) / p);
-
-
                         Console.WriteLine("Площдь: {0}", S);
                         Console.WriteLine("Периметр: {0}", P);
                         Console.WriteLine("Высота: {0}", h);
@@ -68,7 +62,6 @@ namespace laba2_zad1_треугольники
                         Console.WriteLine("Угол c: {0}", cosc);
                         Console.WriteLine("Радиус описанной окружности : {0}", R);
                         Console.WriteLine("Радиус вписанной окружности: {0}", r);
-
                     }
                     else
                     {
@@ -79,10 +72,6 @@ namespace laba2_zad1_треугольники
                 Console.WriteLine("Хотите ввести другие стороны треугольника? ");
                 otvet2 = Console.ReadLine();
             } while (otvet2=="да");
-
-
-
-
         }
     }
 }

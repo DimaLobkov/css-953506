@@ -1,0 +1,11 @@
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\bin\Debug\netcoreapp3.1\zad 2.exe
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\bin\Debug\netcoreapp3.1\zad 2.deps.json
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\bin\Debug\netcoreapp3.1\zad 2.runtimeconfig.json
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\bin\Debug\netcoreapp3.1\zad 2.runtimeconfig.dev.json
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\bin\Debug\netcoreapp3.1\zad 2.dll
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\bin\Debug\netcoreapp3.1\zad 2.pdb
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\obj\Debug\netcoreapp3.1\zad 2.csprojAssemblyReference.cache
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\obj\Debug\netcoreapp3.1\zad 2.AssemblyInfoInputs.cache
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\obj\Debug\netcoreapp3.1\zad 2.AssemblyInfo.cs
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\obj\Debug\netcoreapp3.1\zad 2.dll
+C:\stelmashuk.victoria\laboratornaja 2\zad 2\zad 2\obj\Debug\netcoreapp3.1\zad 2.pdb
