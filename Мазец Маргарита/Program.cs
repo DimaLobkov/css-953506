@@ -160,6 +160,7 @@ namespace SiSharpLaba3
         Console.WriteLine($"{_name} получает степендию равную {_step}");
     }
 }
+    
     class People
     {
         public static int max;
@@ -209,6 +210,7 @@ namespace SiSharpLaba3
                 if (person[index].University == sortUniversity)
                     person[index].ShowUniver();
         }
+        
         public void CalculateTheScholarshipOfOneStudent()
         {
             Console.Clear();
