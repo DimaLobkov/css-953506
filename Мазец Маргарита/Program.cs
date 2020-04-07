@@ -17,12 +17,14 @@ namespace SiSharpLaba3
         {
             _currentYear = 2020;
         }
+        
         public Person(int birthYear)
         {
             _currentYear = 2020;
             _birthYear = birthYear;
             _age = _currentYear - birthYear;
         }
+        
         public Person(string name, string surname, int birthYear)
         {
             _currentYear = 2020;
@@ -31,6 +33,7 @@ namespace SiSharpLaba3
             _name = name;
             _surname = surname;
         }
+        
         public Person(string name, string surname, string university, string spesialty)
         {
             _currentYear = 2020;
@@ -39,6 +42,7 @@ namespace SiSharpLaba3
             _university = university;
             _spesialty = spesialty;
         }
+        
         public Person(string name, string surname, int birthYear, string university, string spesialty, double middleMark)
         {
             _currentYear = 2020;
@@ -62,6 +66,7 @@ namespace SiSharpLaba3
                 _name = value;
             }
         }
+        
         public string University
         {
             get
@@ -73,6 +78,7 @@ namespace SiSharpLaba3
                 _university = value;
             }
         }
+        
         public double Stependija
         {
             get
@@ -80,25 +86,28 @@ namespace SiSharpLaba3
                 return _stependija;
             }
         }
-        public int Birth_year
-        { get
+        
+        public int BirthYear
+        { 
+            get
             {
                 return _birthYear;
             }
             set
             {
-                if (Birth_year < 1900 || Birth_year > 2020)
+                if (BirthYear < 1900 || BirthYear > 2020)
                 {
                     Console.WriteLine("Человека такого года рождения не существует!");
                 }
                 else
                 {
                     _birthYear = value;
-                    _age = _currentYear - Birth_year;
+                    _age = _currentYear - BirthYear;
                 }
             } 
         }
-        public double Middle_mark
+        
+        public double MiddleMark
         {
             get
             {
@@ -106,7 +115,7 @@ namespace SiSharpLaba3
             }
             set
             {
-                if (Middle_mark < 0 || Middle_mark > 10)
+                if (MiddleMark < 0 || MiddleMark > 10)
                     Console.WriteLine("Средний балл не может принимать такое значение!");               
                 else
                 {
@@ -114,6 +123,7 @@ namespace SiSharpLaba3
                 }
             }
         }
+        
         //-------------------------------------------методы
         public void WriteInformation()
     {
@@ -124,10 +134,12 @@ namespace SiSharpLaba3
         Console.WriteLine($"Специальность:{_spesialty}");
         Console.WriteLine($"Средний балл:{_middleMark}\n");
     }
+        
     public void ShowUniver()
     {
         Console.WriteLine($"{_name} учится на специальности\"{_spesialty}\"");
     }
+        
     public void Scholarship()
     {
         if (_middleMark <= 4.0)
@@ -141,7 +153,8 @@ namespace SiSharpLaba3
         if (_middleMark >= 9.0 && _middleMark <= 10.0)
             _step = 100.0;
     }
-    public void Calculate_the_scholarship()
+        
+    public void CalculateTheScholarship()
     {
         Scholarship();
         Console.WriteLine($"{_name} получает степендию равную {_step}");
@@ -157,6 +170,7 @@ namespace SiSharpLaba3
             max = Max;
             person = new Person[max];
         }
+        
         public Person this[int index]
         {
             get
@@ -168,38 +182,41 @@ namespace SiSharpLaba3
                 person[index] = value;
             }
         }
+        
         public void ShowInformationAll()
         {
             Console.Clear();
             for (int index = 0; index < Counter; index++)
                 person[index].WriteInformation();
         }
+        
         public void ShowInformationOne()
         {
             Console.Clear();
             Console.WriteLine("введите имя студента:");
-            string name_seach = Console.ReadLine();
+            string nameSeach = Console.ReadLine();
             for (int index = 0; index < Counter; index++)
-                if (person[index].Name == name_seach)
+                if (person[index].Name == nameSeach)
                     person[index].WriteInformation();
         }
-        public void Student_Information_for_one_university()
+        
+        public void StudentInformationForOneUniversity()
         {
             Console.Clear();
             Console.WriteLine("введите название учебного заведения:");
-            string sort_university = Console.ReadLine();
+            string sortUniversity = Console.ReadLine();
             for (int index = 0; index < Counter; index++)
-                if (person[index].University == sort_university)
+                if (person[index].University == sortUniversity)
                     person[index].ShowUniver();
         }
-        public void Calculate_the_scholarship_of_one_student()
+        public void CalculateTheScholarshipOfOneStudent()
         {
             Console.Clear();
             Console.WriteLine("введите имя студента:");
             string name_seach = Console.ReadLine();
             for (int index = 0; index < Counter; index++)
                 if (person[index].Name == name_seach)
-                    person[index].Calculate_the_scholarship();
+                    person[index].CalculateTheScholarship();
         }
     }
 
@@ -225,9 +242,9 @@ namespace SiSharpLaba3
                 specialty = Console.ReadLine();
                 person[index] = new Person(name, surname, university, specialty);
                 Console.WriteLine("Введите год рождения:");
-                person[index].Birth_year= Convert.ToInt32(Console.ReadLine());
+                person[index].BirthYear= Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Введите средний балл:");
-                person[index].Middle_mark = Convert.ToDouble(Console.ReadLine());
+                person[index].MiddleMark = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Продолжить ввод? 1-да, 2-нет");
                 YesNo=Convert.ToInt32(Console.ReadLine());
                 if (YesNo == 2)
@@ -253,7 +270,7 @@ namespace SiSharpLaba3
                         }
                     case 2:
                         {
-                            person.Student_Information_for_one_university();
+                            person.StudentInformationForOneUniversity();
                             break;
                         }
                     case 3:
@@ -263,7 +280,7 @@ namespace SiSharpLaba3
                         }
                     case 4:
                         {
-                            person.Calculate_the_scholarship_of_one_student();
+                            person.CalculateTheScholarshipOfOneStudent();
                             break;
                         }
                     case 5: return;
