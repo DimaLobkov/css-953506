@@ -243,7 +243,7 @@ namespace SiSharpLaba3
                 Console.WriteLine("3-вывести отдельного студента");
                 Console.WriteLine("4-расчитать степендию студента");
                 Console.WriteLine("5-завершить программу");
-                menu=ToInt32(Console.ReadLine());
+                menu=Convert.ToInt32(Console.ReadLine());
                 switch (menu)
                 {
                     case 1:
@@ -271,7 +271,7 @@ namespace SiSharpLaba3
                         {
                             Console.Clear();
                             Console.WriteLine("Введите число ещё раз:");
-                            menu=ToInt32(Console.ReadLine());
+                            menu=Convert.ToInt32(Console.ReadLine());
                             break;
                         }
                 }
