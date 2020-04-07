@@ -33,7 +33,6 @@ namespace laba3
             _radius = radius;
             _angles = angles;
             _sidelenght = radius * (2 * Math.Sin(Math.PI / (_angles = _angles != 0 ? _angles : 1)));
-
         }
 
         public Figure(double perimeter, int angles, bool ontheflat)
@@ -42,7 +41,6 @@ namespace laba3
             _ontheflat = ontheflat;
             _angles = angles;
             _sidelenght = perimeter / angles;
-
         }
 
         //----------------------------
@@ -128,7 +126,6 @@ namespace laba3
             Console.WriteLine("Цвет фигуры сверху/сниизу:");
             _planecolor[0] = Console.ReadLine();
             _planecolor[1] = Console.ReadLine();
-
         }
 
         public void InfoofFigure()
@@ -176,8 +173,7 @@ namespace laba3
                         _planecolor[0] = Console.ReadLine();
                         _planecolor[1] = Console.ReadLine();
                         break;
-                    }
-               
+                    }               
             }
         }
     }
