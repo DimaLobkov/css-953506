@@ -61,7 +61,7 @@ namespace Pudge
                                 case 221: Console.Write("} "); break;
                                 case 222: Console.Write('"' + " "); break;
                                 default:
-                                    if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z') || (i >= '0' && i <= '9'))
+                                    if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z'))
                                     {
                                         if (Console.CapsLock)
                                         {
