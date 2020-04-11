@@ -8,10 +8,6 @@ namespace ConsoleApp1{
         {
             string[] result = new string[3];
 
-            //result[0] = exprString.Substring(0, exprString.IndexOf('('));
-            //result[1] = exprString.Substring(exprString.IndexOf('(') + 1, exprString.LastIndexOf(')') - exprString.IndexOf('(') - 1);
-            //result[2] = exprString.Substring(exprString.LastIndexOf(')') + 1, exprString.Length - exprString.LastIndexOf(')') - 1);
-
             string tmpString = exprString.Substring(exprString.LastIndexOf('(') + 1, exprString.Length - exprString.LastIndexOf('(') - 1);
             Console.WriteLine(tmpString);
 
@@ -88,7 +84,7 @@ namespace ConsoleApp1{
 
         static void Main(string[] args){
 
-            Console.WriteLine("Enter expression:");
+            Console.WriteLine("Enter expression (without spaces):");
             string maneString = Console.ReadLine();
 
             Regex rexpr = new Regex(@"[^\(\)\d\+\-\*\/]"); 
