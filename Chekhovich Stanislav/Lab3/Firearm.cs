@@ -6,6 +6,7 @@ namespace Lab3
 {
     class Firearm
     {
+        //----------------Поля
         private string _model;
         private string _caliber;
         private uint _maxAmmo;
@@ -15,6 +16,7 @@ namespace Lab3
         private static string _generalInfo = "Firearm weapon use ammo to shoot";
         private bool[] _mode = new bool[3] { true, false, false };
         
+        //----------------Свойства
         public bool Reload
         {
             get
@@ -89,6 +91,7 @@ namespace Lab3
             }
         }
         
+        //----------------Индексатор
         public bool this[int index]
         {
             get
@@ -102,6 +105,7 @@ namespace Lab3
             }
         }
         
+        //----------------Конструкторы
         public Firearm(string model, string caliber, uint maxAmmo, uint ammoInClip)
         {
             _model = model;
@@ -118,6 +122,7 @@ namespace Lab3
             _ammoInClip = 30;
         }
         
+        //----------------Методы
         public void ReloadFirearm(uint ammo)
         {
             _ammoInClip = ammo > _maxAmmo ? _maxAmmo : ammo;
