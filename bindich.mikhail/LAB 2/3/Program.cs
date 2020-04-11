@@ -1,30 +1,33 @@
 ﻿using System;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace _2_3
 {
     class Program
     {
-        static void stringModifier(string[] words)
+        static StringBuilder stringModifier(string[] words)
         {
-            string result = "";
+            StringBuilder sbRes = new StringBuilder("");
             Regex regExpr = new Regex(@"([^A-z])+");
 
             for (int i = 0; i < words.Length; i++)
             {
+                StringBuilder tmp = new StringBuilder("");
                 if (regExpr.IsMatch(words[i]))
                 {
-                    words[i] = regExpr.Match(words[i]) + words[i];
+                    sbRes.Append(tmp.Insert(0, regExpr.Match(words[i])));
                 }
-                if (i == words.Length - 1) {
-                    result += words[i];
+                if (i == words.Length - 1)
+                {
+                    sbRes.Append(words[i]);
                 }
                 else
                 {
-                    result += words[i] + ' ';
+                    sbRes.Append(words[i] + ' ');
                 }
             }
-            Console.WriteLine($"The result string - {result}");
+            return sbRes;
         }
 
         static void Main(string[] args)
@@ -32,9 +35,10 @@ namespace _2_3
             Console.Write("Enter string: ");
             string maneStr;
             maneStr = Console.ReadLine();
-
             string[] words = maneStr.Split(' ');
-            stringModifier(words);
+            StringBuilder sb = new StringBuilder("");
+            sb = stringModifier(words);
+            Console.WriteLine($"The result string: {sb}");
         }
     }
 }
