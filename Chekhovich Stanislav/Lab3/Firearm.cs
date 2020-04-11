@@ -14,6 +14,7 @@ namespace Lab3
         private bool _safety = true;
         private static string _generalInfo = "Firearm weapon use ammo to shoot";
         private bool[] _mode = new bool[3] { true, false, false };
+        
         public bool Reload
         {
             get
@@ -26,6 +27,7 @@ namespace Lab3
                 _reload = value;
             }
         }
+        
         public bool Safety
         {
             get
@@ -37,6 +39,7 @@ namespace Lab3
                 _safety = value;
             }
         }
+        
         public string Model
         {
             get
@@ -48,6 +51,7 @@ namespace Lab3
                 _model = value;
             }
         }
+        
         public string Caliber
         {
             get
@@ -59,6 +63,7 @@ namespace Lab3
                 _caliber = value;
             }
         }
+        
         public uint MaxAmmo
         {
             get
@@ -70,6 +75,7 @@ namespace Lab3
                 _maxAmmo = value;
             }
         }
+        
         public uint AmmoInClip
         {
             get
@@ -82,6 +88,7 @@ namespace Lab3
                 _reload = _ammoInClip == 0;
             }
         }
+        
         public bool this[int index]
         {
             get
@@ -94,6 +101,7 @@ namespace Lab3
                 _mode[index] = value;
             }
         }
+        
         public Firearm(string model, string caliber, uint maxAmmo, uint ammoInClip)
         {
             _model = model;
@@ -101,6 +109,7 @@ namespace Lab3
             _maxAmmo = maxAmmo;
             _ammoInClip = maxAmmo < ammoInClip ? maxAmmo : ammoInClip;
         }
+        
         public Firearm()
         {
             _model = "M16";
@@ -108,11 +117,13 @@ namespace Lab3
             _maxAmmo = 30;
             _ammoInClip = 30;
         }
+        
         public void ReloadFirearm(uint ammo)
         {
             _ammoInClip = ammo > _maxAmmo ? _maxAmmo : ammo;
             _reload = false;
         }
+        
         public void Shoot()
         {
             if (_ammoInClip > 0)
@@ -151,6 +162,7 @@ namespace Lab3
                 _reload = true;
             }    
         }
+        
         public void GetInfo()
         {
             Console.WriteLine($"{_generalInfo}" +
