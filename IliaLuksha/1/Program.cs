@@ -12,9 +12,10 @@ namespace ConsoleApp1
         {
             static void Main(string[] args)
             {
-                int[] count = { 6, 7, 8, 9, 10, 3, 4, 5, 11 };
+                //6, 7, 8, 9, 10, 3, 4, 5, 11
+                List<int> count1 = new List<int>() {6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 11, 11, 11, 11 };
                 bool ifer = false;
-                int randomer = 0, Sum = 0, check = 0, randomer2 = 0, Sum2 = 0, rand2 = 0;
+                int randomer = 0, Sum = 0, check = 0, randomer2 = 0, Sum2 = 0, rand2 = 0, k = 35 ;
                 Random rand = new Random();
 
                 if (!ifer)
@@ -31,12 +32,12 @@ namespace ConsoleApp1
                         {
                             Sum2--;
                         }
-                        randomer = rand.Next() % 9;
-                        Sum += count[randomer];
-                        randomer2 = rand.Next() % 9;
-                        Sum2 += count[randomer];
+                        randomer = rand.Next() % k;
+                        Sum += count1[randomer];
+                        randomer2 = rand.Next() % k;
+                        Sum2 += count1[randomer];
                         Console.WriteLine("You got ");
-                        switch (count[randomer])
+                        switch (count1[randomer])
                         {
                             case 6:
                                 Console.WriteLine("6");
@@ -66,11 +67,14 @@ namespace ConsoleApp1
                                 Console.WriteLine("ACE");
                                 break;
                         }
+                        count1.RemoveAt(randomer);
+                        k--;
                         Console.WriteLine($"You have {Sum} points");
                         if(Sum2 > 21 && Sum < 21)
                         {
                             Console.WriteLine("You WIN");
                             ifer = true;
+                            break;
                            
                         }
                         if (Sum > 21)
@@ -83,7 +87,8 @@ namespace ConsoleApp1
                         {
                             Console.WriteLine("You WIN");
                             ifer = true;
-                        }
+                            break;
+                    }
                         else
                         {
                             Console.WriteLine("Do you want to take another card?");
@@ -97,19 +102,22 @@ namespace ConsoleApp1
                                 {
                                     Console.WriteLine("You WIN");
                                     ifer = true;
-                                }
+                                    break;
+                            }
                                 else
                                 {
                                     if(Sum == Sum2)
                                     {
                                         Console.WriteLine("DRAW");
                                         ifer = true;
-                                    }
+                                        break;
+                                }
                                     else
                                     {
                                         Console.WriteLine("LOSE");
                                         ifer = true;
-                                    }
+                                        break;
+                                }
                                 }
                             }
                         }

@@ -11,12 +11,21 @@ namespace ConsoleApp2
 
             string[] strArr;
             strArr = str.Split(' ');
-
+            string result = "";
             for (int i = strArr.Length - 1; i >= 0; i--)
             {
-                Console.Write(strArr[i]);
-                Console.Write(' ');
+                if (i == 0)
+                {
+                    result += strArr[i];
+                    break;
+                }
+                else
+                {
+                    result += strArr[i] + ' ';
+                }
             }
+
+            Console.WriteLine(result);
         }
     }
 }
