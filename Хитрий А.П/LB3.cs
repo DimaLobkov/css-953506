@@ -68,13 +68,13 @@ class Human
 
     public void cout()
     {
-        Console.WriteLine(Name);
-        Console.WriteLine(Age);
-        Console.WriteLine(High); 
-        Console.WriteLine(Weight);
-        Console.WriteLine(Birthdate);
-        Console.WriteLine(parent[0]);
-        Console.WriteLine(parent[1]);
+        WriteLine(Name);
+        WriteLine(Age);
+        WriteLine(High); 
+        WriteLine(Weight);
+        WriteLine(Birthdate);
+        WriteLine(parent[0]);
+        WriteLine(parent[1]);
     }
 
     public void date()
@@ -180,7 +180,7 @@ class Human
                     {
                         b = false;
                         break;
-                    };
+                    }
                 case ConsoleKey.D1:
                     {
                         you.cout();
@@ -236,5 +236,5 @@ class Human
                     }
             }
         }
-        }
+    }
     }
