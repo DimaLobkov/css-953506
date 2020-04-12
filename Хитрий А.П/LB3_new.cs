@@ -33,20 +33,15 @@ class Human
 
     public int ID { get; }
     
-    public string Name
-    { get; set;}
+    public string Name { get; set; }
     
-    public int Age
-    { get; set; }
+    public int Age { get; set; }
     
-    public int High
-    { get; set; }
+    public int High { get; set; }
     
-    public float Weight
-    { get; set; }
+    public float Weight { get; set; }
     
-    public DateTime Birthdate
-    { get; set; }
+    public DateTime Birthdate { get; set; }
 
     public string this[int index]
     {
