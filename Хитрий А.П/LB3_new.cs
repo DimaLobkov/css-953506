@@ -6,6 +6,7 @@ class Human
 {
     private static int Number = 1843650;
     private string[] parent = new string [2];
+    
     public Human()
     {
         ID = Number + 1;
@@ -83,8 +84,7 @@ class Human
         }
     }
 
-    ~Human()
-    { }
+    ~Human() { }
 }
 
 class Program
