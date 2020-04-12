@@ -12,11 +12,8 @@ namespace ConsoleApp1{
             Console.WriteLine(tmpString);
 
             result[0] = exprString.Substring(0, exprString.LastIndexOf('('));
-            Console.WriteLine("result[0]"); Console.WriteLine(result[0]);
             result[1] = tmpString.Substring(0, tmpString.IndexOf(')'));
-            Console.WriteLine("result[1]"); Console.WriteLine(result[1]);
             result[2] = tmpString.Substring(tmpString.IndexOf(')') + 1, tmpString.Length - tmpString.IndexOf(')') - 1);
-            Console.WriteLine("result[2]"); Console.WriteLine(result[2]);
 
             return result;
         }
@@ -25,7 +22,6 @@ namespace ConsoleApp1{
         {
             string [] tmp;
             double res = 0;
-            //Console.WriteLine(exprString);
             
             if (exprString.Contains('('))
             {
