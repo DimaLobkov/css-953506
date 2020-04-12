@@ -176,5 +176,8 @@ namespace Lab3
                 $"\nMax ammo in a clip: {_maxAmmo}" +
                 $"\nCurrent ammo in a clip: {_ammoInClip}");
         }
+        
+        //----------------Деструктор
+        ~Firearm() {}
     }
 }
