@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using static System.Console;
 using System.Windows.Forms;
 
@@ -87,8 +87,8 @@ class Human
     { }
 }
 
-    class Program
-    {
+class Program
+{
     static Human Creat()
     {
         try
@@ -130,7 +130,7 @@ class Human
         return null;
     }
     static void Main(string[] args)
-        {
+    {
         ConsoleKeyInfo key;
         WriteLine("Хотите сначала ввести данные? 1 - да,0 - нет");
         bool b = true;
@@ -188,9 +188,7 @@ class Human
                         }
                         b = true;
                         break;
-                    }
                 case ConsoleKey.D3:
-                    {
                         b = true;
                         WriteLine("Изменение:\n 0 - выход,\n 1 - имя,\n 2 - возраст,\n 3 - рост,\n 4 - вес,\n 5 - день рождения,\n 6 - имя папы,\n 7 - имя мамы");
                         while (b == true)
@@ -211,8 +209,7 @@ class Human
                         }
                         b = true;
                         break;
-                    }
             }
-        }
+         }
     }
-    }
+ }
