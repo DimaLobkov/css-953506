@@ -17,12 +17,12 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             string s = Console.ReadLine();
-            int n = s.Length;
             char[] mas = s.ToCharArray();
+            int n = s.Length;
 
             for(int i = 0; i < n - 1; i++)
             {
-                switch (mas[i])
+                switch (s[i])
                 {
                     case 'a':
                     case 'e': 
@@ -30,40 +30,23 @@ namespace ConsoleApp3
                     case 'o': 
                     case 'u': 
                     case 'y':
-                            if (char.IsDigit(mas[i + 1]) == false)//IsAlpha
+                            if (char.IsDigit(s[i + 1]) == false)//IsAlpha
                             {
-                                if (i == 0)
-                                {
+                                
                                     if (Convert.ToInt32(mas[i + 1]) == 122)
                                     {
                                         mas[i + 1] = Convert.ToChar(97);
                                     }
                                     else
                                     {
-                                        int c = Convert.ToInt32(mas[i + 1]) + 1;
+                                        int c = Convert.ToInt32(s[i + 1]) + 1;
                                         mas[i + 1] = Convert.ToChar(c);
                                     }
-                                }
-
-                                else
-                                {
-                                    if (mas[i - 1] != 'a' && mas[i - 1] != 'e' && mas[i - 1] != 'i' && mas[i - 1] != 'o' && mas[i - 1] != 'u' && mas[i - 1] != 'y')
-                                    {
-                                        if (Convert.ToInt32(mas[i + 1]) == 122)
-                                        {
-                                            mas[i + 1] = Convert.ToChar(97);
-                                        }
-                                        else
-                                        {
-                                            int c = Convert.ToInt32(mas[i + 1]) + 1;
-                                            mas[i + 1] = Convert.ToChar(c);
-                                        }
-                                    }
-                                }
-                            }
-                                break;
                             
-                     default: break;
+ 
+                            }
+                            break;
+                        default: break;
                     }
 
             }
