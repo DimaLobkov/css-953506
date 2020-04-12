@@ -30,35 +30,22 @@ class Human
         parent[1] = parent1;
     }
 
-    public int ID
-    {
-        get;
-    }
+    public int ID { get; }
+    
     public string Name
-    {
-        get;
-        set;
-    }
+    { get; set;}
+    
     public int Age
-    {
-        get;
-        set;
-    }
+    { get; set; }
+    
     public int High
-    {
-        get;
-        set;
-    }
+    { get; set; }
+    
     public float Weight
-    {
-        get;
-        set;
-    }
+    { get; set; }
+    
     public DateTime Birthdate
-    {
-        get;
-        set;
-    }
+    { get; set; }
 
     public string this[int index]
     {
@@ -154,17 +141,13 @@ class Human
             switch (key.Key)
             {
                 case ConsoleKey.D0:
-                    {
                         you = new Human();
                         b = false;
                         break;
-                    }
                 case ConsoleKey.D1:
-                    {
                        you = Creat();
                         b = false;
                         break;
-                    }
             }
         }
         b = true;
@@ -177,19 +160,14 @@ class Human
             switch (key.Key)
             {
                 case ConsoleKey.D0:
-                    {
                         b = false;
                         break;
-                    }
                 case ConsoleKey.D1:
-                    {
                         you.cout();
                         Write("Введите любую клавишу, чтобы выйти...");
                         ReadKey(true);
                         break;
-                    }
                 case ConsoleKey.D2:
-                    {
                         b = true;
                         WriteLine("Вывод:\n 0 - выход,\n 1 - имя,\n 2 - возраст,\n 3 - рост,\n 4 - вес,\n 5 - день рождения,\n 6 - родители,\n 7 - ID");
                         while (b == true)
@@ -197,14 +175,14 @@ class Human
                             key = ReadKey(true);
                             switch (key.Key)
                             {
-                                case ConsoleKey.D0: { b = false; break; }
-                                case ConsoleKey.D1: { WriteLine(you.Name);  break; }
-                                case ConsoleKey.D2: { WriteLine(you.Age);  break; }
-                                case ConsoleKey.D3: { WriteLine(you.High); break; }
-                                case ConsoleKey.D4: { WriteLine(you.Weight);  break; }
-                                case ConsoleKey.D5: { WriteLine("{0:D}",you.Birthdate);  break; }
-                                case ConsoleKey.D6: { WriteLine(you[0] + ' ' + you[1]);  break; }
-                                case ConsoleKey.D7: { WriteLine(you.ID);  break; }
+                                case ConsoleKey.D0: b = false; break;
+                                case ConsoleKey.D1: WriteLine(you.Name);  break; 
+                                case ConsoleKey.D2: WriteLine(you.Age);  break; 
+                                case ConsoleKey.D3: WriteLine(you.High); break; 
+                                case ConsoleKey.D4: WriteLine(you.Weight);  break; 
+                                case ConsoleKey.D5: WriteLine("{0:D}",you.Birthdate);  break; 
+                                case ConsoleKey.D6: WriteLine(you[0] + ' ' + you[1]);  break; 
+                                case ConsoleKey.D7: WriteLine(you.ID);  break; 
 
                             }
                         }
@@ -220,14 +198,14 @@ class Human
                             key = ReadKey(true);
                             switch (key.Key)
                             {
-                                case ConsoleKey.D0: { b = false; break; }
-                                case ConsoleKey.D1: { Write("Введите имя "); you.Name = ReadLine(); break; }
-                                case ConsoleKey.D2: { Write("Введите возраст "); you.Age = int.Parse(ReadLine()); break; }
-                                case ConsoleKey.D3: { Write("Введите рост "); you.High = int.Parse(ReadLine()); break; }
-                                case ConsoleKey.D4: { Write("Введите вес "); you.Weight = int.Parse(ReadLine()); break; }
-                                case ConsoleKey.D5: { Write("Введите дату "); you.date(); break; }
-                                case ConsoleKey.D6: { Write("Введите имя папы "); you[0] = ReadLine(); break; }
-                                case ConsoleKey.D7: { Write("Введите имя мамы "); you[1] = ReadLine(); break; }
+                                case ConsoleKey.D0: b = false; break;
+                                case ConsoleKey.D1: Write("Введите имя "); you.Name = ReadLine(); break;
+                                case ConsoleKey.D2: Write("Введите возраст "); you.Age = int.Parse(ReadLine()); break;
+                                case ConsoleKey.D3: Write("Введите рост "); you.High = int.Parse(ReadLine()); break;
+                                case ConsoleKey.D4: Write("Введите вес "); you.Weight = int.Parse(ReadLine()); break;
+                                case ConsoleKey.D5: Write("Введите дату "); you.date(); break;
+                                case ConsoleKey.D6: Write("Введите имя папы "); you[0] = ReadLine(); break;
+                                case ConsoleKey.D7: Write("Введите имя мамы "); you[1] = ReadLine(); break;
 
                             }
                         }
