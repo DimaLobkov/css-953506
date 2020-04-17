@@ -2,9 +2,6 @@
 
 namespace Lab3
 {
-    /// <summary>
-    /// Represents human instance
-    /// </summary>
     class Human
     {
         private static int PersonalIdCounter;
@@ -34,11 +31,6 @@ namespace Lab3
             _birthdate = birthdate;
         }
 
-        /// <summary>
-        /// Returns property value by name.
-        /// </summary>
-        /// <param name="property">Property name</param>
-        /// <returns></returns>
         public string this[string property]
         {
             get
@@ -65,9 +57,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns personal generated Id of the human instance.
-        /// </summary>
         public int PersonalId
         {
             get
@@ -76,9 +65,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns and sets firstname of the human instance.
-        /// </summary>
         public string Firstname
         {
             get
@@ -91,9 +77,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns and sets lastname of the human instance.
-        /// </summary>
         public string Lastname
         {
             get
@@ -106,9 +89,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns birthdate of the human instance.
-        /// </summary>
         public DateTime Birthdate
         {
             get
@@ -121,9 +101,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns sex of the human instance.
-        /// </summary>
         public Sex Sex
         {
             get
@@ -132,9 +109,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns and sets height of the human instance.
-        /// </summary>
         public int Height
         {
             get
@@ -147,9 +121,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns and sets weight of the human instance.
-        /// </summary>
         public int Weight
         {
             get
@@ -162,10 +133,6 @@ namespace Lab3
             }
         }
 
-        /// <summary>
-        /// Returns age of the human instance in years.
-        /// </summary>
-        /// <returns></returns>
         public int GetFullYears()
         {
             var zeroTime = new DateTime(1, 1, 1);
@@ -175,10 +142,6 @@ namespace Lab3
             return years;
         }
 
-        /// <summary>
-        /// Returns body mass index of the human instance.
-        /// </summary>
-        /// <returns></returns>
         public double GetBodyMassIndex()
         {
             var bmi = _weight / Math.Pow(_height / 100D, 2);
@@ -186,18 +149,11 @@ namespace Lab3
             return bmi;
         }
 
-        /// <summary>
-        /// Adds 1 kg of weigth.
-        /// </summary>
         public void AddWeight()
         {
             _weight++;
         }
 
-        /// <summary>
-        /// Adds <paramref name="additionalWeight"/> kg of weigth.
-        /// </summary>
-        /// <param name="additionalWeight">Value of weight to add.</param>
         public void AddWeight(int additionalWeight)
         {
             _weight += additionalWeight;
