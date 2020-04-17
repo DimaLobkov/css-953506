@@ -6,12 +6,6 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
-            //while (Console.ReadLine() == "1")
-            //{
-            //    var human = ReadHumanFromConsole();
-            //    Console.WriteLine(human1.ToString());
-            //}
-
             var human = ReadHumanFromConsole();
 
             Console.WriteLine(human.ToString());
