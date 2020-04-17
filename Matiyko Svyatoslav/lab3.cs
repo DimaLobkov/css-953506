@@ -99,13 +99,11 @@ namespace _3
                     _university = Console.ReadLine();
                     break;
 
-                case 5:
-                
+                case 5                
                     _university = "Не является студентом";
                     _studStatus = true;
                     break;
             }
-
             return _studStatus == true ? true : false;
         }
 
