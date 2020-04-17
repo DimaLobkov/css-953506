@@ -43,7 +43,7 @@ namespace Lab3
                     case "Lastname":
                         return _lastname;
                     default:
-                        return string.Empty; // ""
+                        return string.Empty; 
                 }
             }
             set
