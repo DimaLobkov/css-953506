@@ -10,8 +10,7 @@ namespace laba3
         private bool _isСapable = false, _breakage = false;
         public static int production_year;
 
-        //Конструктор
-        
+        //Конструкторы 
         public Car(string mark, string model, string color, string chassis_type)
         {
             _age = 2020 - production_year;
@@ -150,6 +149,7 @@ namespace laba3
         //Деструктор
         ~Car() { }
     }
+    
     class Program
     {
         static void Main()
