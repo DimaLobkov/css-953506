@@ -39,6 +39,15 @@ namespace laba3
             _color = "uknown";
             _chassis_type = "unkown";
         }
+        
+        public Car(string mark, string model,string color)
+        {
+            _age = 2020 - production_year;
+            _mark = mark;
+            _model = model;
+            _color = color;
+            _chassis_type = "unkown";
+        }
 
         public Car() { }
         
