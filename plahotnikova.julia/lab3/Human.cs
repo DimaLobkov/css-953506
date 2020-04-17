@@ -26,7 +26,8 @@ namespace Lab3
             _personalId = PersonalIdCounter++;
         }
 
-        public Human(string firstname, string lastname, DateTime birthdate, Sex sex, int height, int weight) : this(firstname, lastname, sex, height, weight)
+        public Human(string firstname, string lastname, DateTime birthdate, Sex sex, int height, int weight)
+            : this(firstname, lastname, sex, height, weight)
         {
             _birthdate = birthdate;
         }
