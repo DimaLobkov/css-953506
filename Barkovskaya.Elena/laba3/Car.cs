@@ -155,7 +155,7 @@ namespace laba3
         static void Main()
         {
             bool flag = true;
-            char choice;
+            string choice;
             string mark, model, color, chassis_type;
             int production_year = 0;
             Car car;
@@ -185,43 +185,43 @@ namespace laba3
             do
             {
                 Console.WriteLine("1 - Show info\n2 - Restore / throw in landfill\n3 - Change mark\n4 - Change model\n5 - Change color\n6 - Install breakdown\n7 - Show mark and model\n8 - Exit");
-                choice = Console.ReadKey().KeyChar;
+                choice = Console.ReadLine();
                 Console.Clear();
 
                 switch (choice)
                 {
-                    case '1':
+                    case "1":
                         car.ShowInfo();
                         Console.ReadKey();
                         break;
-                    case '2':
+                    case "2":
                         if (car.IsСapable)
                             car.Restore();
                         else car.CarDie();
                         break;
-                    case '3':
+                    case "3":
                         Console.Write("mark - ");
                         car["mark"] = Console.ReadLine();
                         break;
-                    case '4':
+                    case "4":
                         Console.Write("model - ");
                         car["model"] = Console.ReadLine();
                         break;
 
-                    case '5':
+                    case "5":
                         Console.Write("color - ");
                         car["color"] = Console.ReadLine();
                         break;
-                    case '6':
+                    case "6":
                         Console.Write("disease - ");
                         car.Breakdowne = Console.ReadLine();
                         break;
-                    case '7':
+                    case "7":
                         Console.Clear();
                         Console.Write("Your car is " + car["mark"] + " " + car["model"]);
                         Console.ReadKey();
                         break;
-                    case '8':
+                    case "8":
                         return;
                 }
                 Console.Clear();
