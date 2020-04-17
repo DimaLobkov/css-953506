@@ -1,50 +1,75 @@
-﻿// Предусмотреть набор методов, полей, свойств, конструкторов и индексато-ров в реализуемом классе. 
-// Реализовать статические элементы класса (например, создание уникального Id), перегрузку методов
-//	#Человек – Студент – Студенты отдельных специальностей#
-
 using System;
 
 namespace _3
 {
-    class People 
+    class Human
     {
-        public string Name{get; set;}
-        protected int age;
+        protected string name, surname, age;
 
-        public int Age
+        public Human(string name, string surname, string age)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.age = age;
+        }
+
+        public string this[string choice]
         {
             get
             {
-                return age;
+                switch (choice)
+                {
+                    case "name": return name;
+                    case "surname": return surname;
+                    case "age": return age;
+                    default: return null;
+                }
             }
             set
-            {
-                if(age>=0)
+            {   switch(choice)
                 {
-                    age = value;
+                    case "name": name = value; break;
+                    case "surname": surname = value; break;
+                    case "age": age = value; break;
                 }
             }
         }
+
+        public static void Id ()
+        {            
+            Random rand = new Random();
+            string[] id = new string[6];
+
+            for(int i = 0; i<6 ; i++)
+            {
+                id[i] = Convert.ToString(rand.Next(0,9));
+            }
+
+            string singleString = String.Join("",id);
+            Console.Write("ID: {0}", singleString);
+        }
     }
 
-    class Student : People
+    class Student : Human
     {
-        string work_status;
-        string university;
-        int  course;
-        bool stud_status;
+        string _workStatus;
+        string _university;
+        int  _course;
+        bool _studStatus;
+
+        public Student(string name, string surname, string age) : base (name, surname, age){}
 
         public int Course
         {
             get
             {
-                return course;
+                return _course;
             }
             set
             {
                 if(value>=1 && value<=4)
                 {
-                    course = value;
+                    _course = value;
                 }
             }
         }
@@ -52,72 +77,57 @@ namespace _3
         public bool University()
         {
             Console.WriteLine("1.БГУИР\n2.БГУ\n3.БНТУ\n4.Другой университет\n5.Не являюсь студентом");
-            int a = int.Parse(Console.ReadLine());
+            int _choice = int.Parse(Console.ReadLine());
             
-            switch(a)
+            switch(_choice)
             {
                 case 1:
-                    university = "БГУИР";
+                    _university = "БГУИР";
                     break;
 
                 case 2:
-                    university = "БГУ";
+                    _university = "БГУ";
                     break;
 
                 case 3:
-                    university = "БНТУ";
+                    _university = "БНТУ";
                     break;
 
                 case 4:
                     Console.Clear();
                     Console.WriteLine("Введите название вашего университета: ");
-                    university = Console.ReadLine();
+                    _university = Console.ReadLine();
                     break;
 
                 case 5:
-                {
-                    university = "Не является студентом";
-                    stud_status = true;
+                
+                    _university = "Не является студентом";
+                    _studStatus = true;
                     break;
-                }
             }
 
-            if(stud_status)   
-            {  
-                return stud_status;
-            }
-            else 
-            {
-                return false;
-            }
+            return _studStatus == true ? true : false;
         }
 
-        public void Work_status()
+        public void WorkStatus()
         {
             Console.WriteLine("Есть ли у вас работа: да/нет");
-            string T_or_F = Console.ReadLine();
+            string trueOrFalse = Console.ReadLine();
 
-            if(T_or_F == "да")
-            {
-                work_status = "имеет работу";
-            }
-            else
-            {
-                work_status = "без работы";
-            }
+            _workStatus = trueOrFalse=="да" ? "имеет работу" : "без работы";
         }
-        
-        public void Inforamation_about_student()
+
+        public void InforamationAboutStudent(string surname, string name, string age)
         {
             Console.Clear();
 
-            if(stud_status)
+            if(_studStatus)
             {
-                Console.WriteLine("имя: {0}\nВозраст: {1}\nМесто учебы: {2}\n", Name, age, university);
+                Console.WriteLine("Фамилия и имя: {0} {1}\nВозраст: {2}\nМесто учебы: {3}", surname, name, age, _university);
             }
             else
             {
-                Console.WriteLine("имя: {0}\nВозраст: {1}\nМесто учебы: {2}\n№ курса: {3}\nwork_status: {4}", Name, age, university, course, work_status);
+                Console.WriteLine("Фамилия и имя: {0} {1}\nВозраст: {2}\nМесто учебы: {3}\n№ курса: {4}\nworkStatus: {5}",surname, name, age, _university, _course, _workStatus);
             }
         }
     }
@@ -126,26 +136,79 @@ namespace _3
     {
         static void Main(string[] args)
         {
-            Student st1 = new Student();
-            
-            Console.WriteLine("Введите Имя: ");
-            st1.Name = Console.ReadLine();
+            string name, surname, age;
 
-            Console.WriteLine("\nВведите возраст: ");
-            st1.Age = int.Parse(Console.ReadLine());
+            Console.Write("Введите имя: ");
+            name = Console.ReadLine();
+
+            Console.Write("Введите фамилию: ");
+            surname = Console.ReadLine();
+
+            Console.Write("Ваш возраст: ");
+            age = Console.ReadLine();
+    
+            Student st1 = new Student(name, surname, age);
             
-            Console.WriteLine("\nВ каком университете вы учитесь?: ");
-            bool check = st1.University();
-            
-            if(!check)
+            do
             {
-            Console.WriteLine("\nНа каком курсе обучения вы находитесь?");
-            st1.Course = int.Parse(Console.ReadLine());
-            st1.Work_status();
-            }    
+                Console.Clear();
+                Console.WriteLine("1.Дополнить информацию о себе\n2.изменить информацию\n3.вывести информацию\n4.выйти");
+                int choice = int.Parse(Console.ReadLine());
 
-            st1.Inforamation_about_student();
-            Console.ReadLine();
+                switch(choice)
+                {
+                    case 1:
+                        Console.WriteLine("\nВ каком университете вы учитесь?: ");
+                        bool check = st1.University();
+            
+                        if(!check)
+                        {
+                            Console.WriteLine("\nНа каком курсе обучения вы находитесь?");
+                            st1.Course = int.Parse(Console.ReadLine());
+                            st1.WorkStatus();
+                        }    
+                        break;
+                    
+                    case 2:
+                        Console.WriteLine("Изменить:\n1.имя и фамилию\n2.возраст\n3.выйти");
+                        int a = int.Parse(Console.ReadLine());
+            
+                        switch(a)
+                        {
+                            case 1:
+                            Console.Write("имя:");
+                            st1["name"] = Console.ReadLine();
+
+                            Console.Write("фамилия:");
+                            st1["surname"] = Console.ReadLine();
+                            break;
+
+                            case 2:
+                            Console.Write("возраст:");
+                            st1["age"] = Console.ReadLine();
+                            break;
+
+                            case 3: break;
+                        }
+                        break;
+                        
+                    case 3:
+                        name = st1["name"];
+                        surname = st1["surname"];
+                        age = st1["age"]; 
+                        st1.InforamationAboutStudent(surname, name, age);
+                        Student.Id();
+                        Console.ReadLine();
+                        break;
+
+                    case 4: break;
+                }
+                
+                if(choice == 4)
+                {
+                    break;
+                }
+            } while (true);
         }
     }
 }
