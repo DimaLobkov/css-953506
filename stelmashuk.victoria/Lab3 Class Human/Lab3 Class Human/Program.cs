@@ -11,6 +11,7 @@ namespace human
         private string _gender;
         private int _age;
         private static string _start = "Здравствуйте, введите параметры определенного человека.";
+
         //_Свойства_
         public int Age//свойство для проверки по возрасту
         {
@@ -28,11 +29,13 @@ namespace human
                 }
             }
         }
+
         //_Конструкторы_
         public Person(int age)
         {
             Age = age;
         }
+
         public Person(string name, string surname, int height, int weight, string gender, int age)
         {
             _name = name;
@@ -42,6 +45,7 @@ namespace human
             _weight = weight;
             _gender = gender;
         }
+
         //_Индексатор_
         public string this[string choice]
         {
@@ -71,6 +75,7 @@ namespace human
                 }
             }
         }
+
         //_Методы_ (перегрузка)
         public void GetInfo()
         {
@@ -78,6 +83,7 @@ namespace human
             Console.WriteLine($"Рост:{_height} ");
             Console.WriteLine($"Вес:{_weight} ");
         }
+
         public void GetInfo(int height, int weight, string gender, int age)//расчет нормы килокалорий
         {
             if (gender == "м")
@@ -92,6 +98,7 @@ namespace human
                 Console.WriteLine(norma);
             }
         }
+
         public void GetInfo(int weight, string gender)//расчет нормы воды
         {
             if (gender == "м")
@@ -105,6 +112,7 @@ namespace human
                 Console.WriteLine(norma);
             }
         }
+
         public void GetInfo2(int age, string gender)//расчет нормы нижнего и верхнего давления
         {
             if (gender == "м")
@@ -162,6 +170,7 @@ namespace human
                 }
             }
         }
+
         public void GetInfo3(int weight, int height)//расчет индекса массы тела и вывод информации о результате
         {
             int index;
@@ -195,11 +204,13 @@ namespace human
                 Console.WriteLine("Ожирение третьей степени");
             }
         }
+
         static public string Start()
         {
             return _start;
         }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -247,7 +258,6 @@ namespace human
                 Console.WriteLine(person["_name"]);
                 Console.WriteLine(person["_surname"]);
                 Console.WriteLine(person["_gender"]);
-
                 Console.WriteLine("Суточная норма килокалорий по формуле Харриса-Бенедикта: ");
                 person.GetInfo(height, weight, gender, age);
                 Console.WriteLine("Суточная норма потребления воды (в мл): ");
