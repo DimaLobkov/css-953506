@@ -9,6 +9,7 @@ namespace ЛР5
             public string _name;
             public string _surname;
         }
+        
         public NS _ns;
         public string _university;
         public static int _currentYear = 2020;
@@ -21,6 +22,7 @@ namespace ЛР5
             _university = univer;
             _birthYear = birthYear;
         }
+        
         public string Name
         {
             get
@@ -28,6 +30,7 @@ namespace ЛР5
                 return _ns._name;
             }
         }
+        
         public string University
         {
             get
@@ -35,22 +38,24 @@ namespace ЛР5
                 return _university;
             }
         }
+        
         public abstract void WriteCommonInformatoin();
         public abstract void WriteUniversityInformation();
-       
-
     };
     class Employee : UniversityPerson
     {
         private string  _importantInformation;
+        
         public Employee(string name, string surname, string univer, int birthYear)
                    : base(name, surname, univer, birthYear) { }
+                   
         public override void WriteCommonInformatoin()
         {
             Console.WriteLine($"Имя:{_ns._name}");
             Console.WriteLine($"Фамилия:{_ns._surname}");
             Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
         }
+        
         public override void WriteUniversityInformation()
         {
             Console.WriteLine($"Университет:{_university}");
@@ -60,26 +65,24 @@ namespace ЛР5
         {
             _importantInformation = Console.ReadLine();
         }
+        
         public virtual void WriteImportantInformation()
         {
             Console.WriteLine($"Важная информация: {_importantInformation}");
         }
     };
+    
     class Teacher : Employee
     {
         private string _classes, _academicRanc, _importantScientificInformation, __importantPersonalInformation;
+        
         public Teacher(string name, string surname, string univer, int birthYear,string classes,string aсademicRanc)
                 : base(name, surname, univer, birthYear)
         {
             _classes = classes;
             _academicRanc = aсademicRanc;
         }
-        /*public override void WriteCommonInformatoin() 
-        {
-            Console.WriteLine($"Имя:{_ns._name}");
-            Console.WriteLine($"Фамилия:{_ns._surname}");
-            Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
-        }*/
+        
         public override void WriteUniversityInformation()
         {
             Console.WriteLine($"Университет:{_university}");
@@ -94,6 +97,7 @@ namespace ЛР5
             Console.WriteLine("Помоги другим студентам. Проинформируй о характере и фишках ");
             __importantPersonalInformation = Console.ReadLine();
         }
+        
         public override void WriteImportantInformation()
         {
             Console.WriteLine($"Информация о научной деятельности преподавателя: {_importantScientificInformation}");
@@ -105,17 +109,13 @@ namespace ЛР5
     class ImportantPerson : Employee 
     {
         private string _status;
+        
         public ImportantPerson(string name, string surname, string univer, int birthYear, string status)
                 : base(name, surname, univer, birthYear)
         {
             _status = status;
         }
-       /* public override void WriteCommonInformatoin()
-        {
-            Console.WriteLine($"Имя:{_ns._name}");
-            Console.WriteLine($"Фамилия:{_ns._surname}");
-            Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
-        }*/
+       
         public override void WriteUniversityInformation()
         {
             Console.WriteLine($"Университет:{_university}");
@@ -125,24 +125,28 @@ namespace ЛР5
 
    
     
-        class Student : UniversityPerson
+    class Student : UniversityPerson
     {
         private string _specialty;
         private int _course;
         private double _scholarship;
+        
         public Student(string name, string surname, string university, int birthYear,string specialty,int course) 
             : base(name, surname,university,birthYear)
         {
             _specialty = specialty;
             _course = course;
         }
+        
         public double MiddleMark { get; set; }
+        
         public override void WriteCommonInformatoin()
         {
             Console.WriteLine($"Имя:{_ns._name}");
             Console.WriteLine($"Фамилия:{_ns._surname}");
             Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
         }
+        
         public override void WriteUniversityInformation()
         {
             Console.WriteLine($"Университет:{_university}");
@@ -163,29 +167,20 @@ namespace ЛР5
                 _scholarship = 89.35;
             if (MiddleMark >= 9.0 && MiddleMark <= 10.0)
                 _scholarship = 100.0;
-
             Console.WriteLine($"Степендия:{_scholarship}");
         }
-      
     };
-
 
     class Program
     {
-        
         static void Main(string[] args)
         {
             int menu;
             Student student = new Student("Влад", "Демьянов", "БГУИР", 2001, "ИиТП", 1);
             Teacher teacher = new Teacher("Иван", "Прокопьев", "БГУИР", 1982, "Программирование", "Доцент");
-            ImportantPerson  rector = new ImportantPerson("Валерий", "Денько", "БГУИР", 1978, "ректор");
-            
-
-            
-
+            ImportantPerson  rector = new ImportantPerson("Валерий", "Денько", "БГУИР", 1978, "ректор");        
             while (true)
             {
-               
                 Console.WriteLine("Меню:");
                 Console.WriteLine("1-вывести информацтю о студенте");
                 Console.WriteLine("2-проставить средний балл");
@@ -241,14 +236,10 @@ namespace ЛР5
                             break;
                         }
                     case 7: return;
-                    default:return;
-                        
+                    default:return;   
                 }
             }
-
-
         }
-
     }
 }
 
