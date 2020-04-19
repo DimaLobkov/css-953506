@@ -23,25 +23,10 @@ namespace ЛР5
             _birthYear = birthYear;
         }
         
-        public string Name
-        {
-            get
-            {
-                return _ns._name;
-            }
-        }
-        
-        public string University
-        {
-            get
-            {
-                return _university;
-            }
-        }
-        
         public abstract void WriteCommonInformatoin();
         public abstract void WriteUniversityInformation();
     };
+    
     class Employee : UniversityPerson
     {
         private string  _importantInformation;
@@ -122,8 +107,6 @@ namespace ЛР5
             Console.WriteLine($"Звание:{_status}");
         }
     };
-
-   
     
     class Student : UniversityPerson
     {
