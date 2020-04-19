@@ -1,300 +1,254 @@
-using System;
-namespace SiSharpLaba3
+﻿using System;
+
+namespace ЛР5
 {
-    class Person
+    abstract class UniversityPerson
     {
-        //----------------------------------------------поля
-        private string _name, _surname;
-        private static int _currentYear;
-        private int _birthYear;
-        private int _age;
-        private string _university;
-        private string _spesialty;
-        private double _middleMark;
-        private double _stependija;
-        //-------------------------------конструкторы
-        public Person()
+        public struct NS
         {
-            _currentYear = 2020;
+            public string _name;
+            public string _surname;
         }
-        
-        public Person(int birthYear)
+        public NS _ns;
+        public string _university;
+        public static int _currentYear = 2020;
+        public int _birthYear;
+
+        public UniversityPerson(string name, string surname,string univer, int birthYear)
         {
-            _currentYear = 2020;
+            _ns._name = name;
+            _ns._surname = surname;
+            _university = univer;
             _birthYear = birthYear;
-            _age = _currentYear - birthYear;
         }
-        
-        public Person(string name, string surname, int birthYear)
-        {
-            _currentYear = 2020;
-            _birthYear = birthYear;
-            _age = _currentYear - birthYear;
-            _name = name;
-            _surname = surname;
-        }
-        
-        public Person(string name, string surname, string university, string spesialty)
-        {
-            _currentYear = 2020;
-            _name = name;
-            _surname = surname;
-            _university = university;
-            _spesialty = spesialty;
-        }
-        
-        public Person(string name, string surname, int birthYear, string university, string spesialty, double middleMark)
-        {
-            _currentYear = 2020;
-            _birthYear = birthYear;
-            _age = _currentYear - birthYear;
-            _name = name;
-            _surname = surname;
-            _university = university;
-            _spesialty = spesialty;
-            _middleMark = middleMark;
-        }
-        //--------------------------------свойства
         public string Name
         {
             get
             {
-                return _name;
-            }
-            set
-            {
-                _name = value;
+                return _ns._name;
             }
         }
-        
         public string University
         {
             get
             {
                 return _university;
             }
-            set
-            {
-                _university = value;
-            }
         }
-        
-        public double Stependija
+        public abstract void WriteCommonInformatoin();
+        public abstract void WriteUniversityInformation();
+       
+
+    };
+    class Employee : UniversityPerson
+    {
+        private string  _importantInformation;
+        public Employee(string name, string surname, string univer, int birthYear)
+                   : base(name, surname, univer, birthYear) { }
+        public override void WriteCommonInformatoin()
         {
-            get
-            {
-                return _stependija;
-            }
+            Console.WriteLine($"Имя:{_ns._name}");
+            Console.WriteLine($"Фамилия:{_ns._surname}");
+            Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
         }
-        
-        public int BirthYear
-        { 
-            get
-            {
-                return _birthYear;
-            }
-            set
-            {
-                if (BirthYear < 1900 || BirthYear > 2020)
-                {
-                    Console.WriteLine("Человека такого года рождения не существует!");
-                }
-                else
-                {
-                    _birthYear = value;
-                    _age = _currentYear - BirthYear;
-                }
-            } 
-        }
-        
-        public double MiddleMark
+        public override void WriteUniversityInformation()
         {
-            get
-            {
-                return _middleMark;
-            }
-            set
-            {
-                if (MiddleMark < 0 || MiddleMark > 10)
-                    Console.WriteLine("Средний балл не может принимать такое значение!");               
-                else
-                {
-                   _middleMark = value;
-                }
-            }
+            Console.WriteLine($"Университет:{_university}");
         }
-        
-        //-------------------------------------------методы
-        public void WriteInformation()
+
+        public virtual void EnterImportantInformation()
+        {
+            _importantInformation = Console.ReadLine();
+        }
+        public virtual void WriteImportantInformation()
+        {
+            Console.WriteLine($"Важная информация: {_importantInformation}");
+        }
+    };
+    class Teacher : Employee
     {
-        Console.WriteLine($"Имя:{_name}");
-        Console.WriteLine($"Фамилия:{_surname}");
-        Console.WriteLine($"Возраст:{_age}");
-        Console.WriteLine($"Университет:{_university}");
-        Console.WriteLine($"Специальность:{_spesialty}");
-        Console.WriteLine($"Средний балл:{_middleMark}\n");
-    }
-        
-    public void ShowUniver()
-    {
-        Console.WriteLine($"{_name} учится на специальности\"{_spesialty}\"");
-    }
-        
-    public void Scholarship()
-    {
-        if (_middleMark <= 4.0)
-            _step = 0.0;
-        if (_middleMark >= 4.0 && _middleMark <= 6.0)
-            _step = 40.35;
-        if (_middleMark >= 6.0 && _middleMark <= 8.0)
-            _step = 62.29;
-        if (_middleMark >= 8.0 && _middleMark <= 9.0)
-            _step = 89.35;
-        if (_middleMark >= 9.0 && _middleMark <= 10.0)
-            _step = 100.0;
-    }
-        
-    public void CalculateTheScholarship()
-    {
-        Scholarship();
-        Console.WriteLine($"{_name} получает степендию равную {_step}");
-    }
-}
+        private string _classes, _academicRanc, _importantScientificInformation, __importantPersonalInformation;
+        public Teacher(string name, string surname, string univer, int birthYear,string classes,string aсademicRanc)
+                : base(name, surname, univer, birthYear)
+        {
+            _classes = classes;
+            _academicRanc = aсademicRanc;
+        }
+        /*public override void WriteCommonInformatoin() 
+        {
+            Console.WriteLine($"Имя:{_ns._name}");
+            Console.WriteLine($"Фамилия:{_ns._surname}");
+            Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
+        }*/
+        public override void WriteUniversityInformation()
+        {
+            Console.WriteLine($"Университет:{_university}");
+            Console.WriteLine($"Предмет преподавания:{_classes}");
+            Console.WriteLine($"Учёное звание:{_academicRanc}");
+        }
+
+        public override void EnterImportantInformation()
+        {
+            Console.WriteLine("Введите важную информацию о научной деятельности преподавателя");
+            _importantScientificInformation  = Console.ReadLine();
+            Console.WriteLine("Помоги другим студентам. Проинформируй о характере и фишках ");
+            __importantPersonalInformation = Console.ReadLine();
+        }
+        public override void WriteImportantInformation()
+        {
+            Console.WriteLine($"Информация о научной деятельности преподавателя: {_importantScientificInformation}");
+            Console.WriteLine($"Информация о характере и особенностях: {__importantPersonalInformation}");
+
+        }
+    };
     
-    class People
+    class ImportantPerson : Employee 
     {
-        public static int max;
-        Person[] person;
-        public int Counter { get; set; }
-        public People(int Max)
+        private string _status;
+        public ImportantPerson(string name, string surname, string univer, int birthYear, string status)
+                : base(name, surname, univer, birthYear)
         {
-            max = Max;
-            person = new Person[max];
+            _status = status;
         }
-        
-        public Person this[int index]
+       /* public override void WriteCommonInformatoin()
         {
-            get
-            {
-                return person[index];
-            }
-            set
-            {
-                person[index] = value;
-            }
-        }
-        
-        public void ShowInformationAll()
+            Console.WriteLine($"Имя:{_ns._name}");
+            Console.WriteLine($"Фамилия:{_ns._surname}");
+            Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
+        }*/
+        public override void WriteUniversityInformation()
         {
-            Console.Clear();
-            for (int index = 0; index < Counter; index++)
-                person[index].WriteInformation();
+            Console.WriteLine($"Университет:{_university}");
+            Console.WriteLine($"Звание:{_status}");
         }
-        
-        public void ShowInformationOne()
+    };
+
+   
+    
+        class Student : UniversityPerson
+    {
+        private string _specialty;
+        private int _course;
+        private double _scholarship;
+        public Student(string name, string surname, string university, int birthYear,string specialty,int course) 
+            : base(name, surname,university,birthYear)
         {
-            Console.Clear();
-            Console.WriteLine("введите имя студента:");
-            string nameSeach = Console.ReadLine();
-            for (int index = 0; index < Counter; index++)
-                if (person[index].Name == nameSeach)
-                    person[index].WriteInformation();
+            _specialty = specialty;
+            _course = course;
         }
-        
-        public void StudentInformationForOneUniversity()
+        public double MiddleMark { get; set; }
+        public override void WriteCommonInformatoin()
         {
-            Console.Clear();
-            Console.WriteLine("введите название учебного заведения:");
-            string sortUniversity = Console.ReadLine();
-            for (int index = 0; index < Counter; index++)
-                if (person[index].University == sortUniversity)
-                    person[index].ShowUniver();
+            Console.WriteLine($"Имя:{_ns._name}");
+            Console.WriteLine($"Фамилия:{_ns._surname}");
+            Console.WriteLine($"Возраст:{_currentYear - _birthYear}");
         }
-        
-        public void CalculateTheScholarshipOfOneStudent()
+        public override void WriteUniversityInformation()
         {
-            Console.Clear();
-            Console.WriteLine("введите имя студента:");
-            string name_seach = Console.ReadLine();
-            for (int index = 0; index < Counter; index++)
-                if (person[index].Name == name_seach)
-                    person[index].CalculateTheScholarship();
+            Console.WriteLine($"Университет:{_university}");
+            Console.WriteLine($"Специальность:{_specialty}");
+            Console.WriteLine($"Курс:{_course}");
         }
-    }
+       
+        public void WriteRaitingsAndScholarship()
+        {
+            Console.WriteLine($"Средний балл:{MiddleMark}");
+            if (MiddleMark <= 4.0)
+                _scholarship = 0.0;
+            if (MiddleMark >= 4.0 && MiddleMark <= 6.0)
+                _scholarship = 40.35;
+            if (MiddleMark >= 6.0 && MiddleMark <= 8.0)
+                _scholarship = 62.29;
+            if (MiddleMark >= 8.0 && MiddleMark <= 9.0)
+                _scholarship = 89.35;
+            if (MiddleMark >= 9.0 && MiddleMark <= 10.0)
+                _scholarship = 100.0;
+
+            Console.WriteLine($"Степендия:{_scholarship}");
+        }
+      
+    };
+
 
     class Program
     {
+        
         static void Main(string[] args)
         {
-            string name, surname, university, specialty;
-            int YesNo, max, counter = 0, menu;
-            Console.WriteLine("Какое максимальное количество студентов? ");
-            max = Convert.ToInt32(Console.ReadLine());
-            People person = new People(max);
-            for (int index = 0; index < max; index++)
-            {
-                counter++;
-                Console.WriteLine("Введите имя:");
-                name = Console.ReadLine();
-                Console.WriteLine("Введите фамилию:");
-                surname = Console.ReadLine();
-                Console.WriteLine("Введите университет:");
-                university = Console.ReadLine();
-                Console.WriteLine("Введите специальность:");
-                specialty = Console.ReadLine();
-                person[index] = new Person(name, surname, university, specialty);
-                Console.WriteLine("Введите год рождения:");
-                person[index].BirthYear= Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Введите средний балл:");
-                person[index].MiddleMark = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Продолжить ввод? 1-да, 2-нет");
-                YesNo=Convert.ToInt32(Console.ReadLine());
-                if (YesNo == 2)
-                    break;
-            }
-            person.Counter = counter;
-            Console.Clear();
+            int menu;
+            Student student = new Student("Влад", "Демьянов", "БГУИР", 2001, "ИиТП", 1);
+            Teacher teacher = new Teacher("Иван", "Прокопьев", "БГУИР", 1982, "Программирование", "Доцент");
+            ImportantPerson  rector = new ImportantPerson("Валерий", "Денько", "БГУИР", 1978, "ректор");
+            
+
+            
+
             while (true)
             {
+               
                 Console.WriteLine("Меню:");
-                Console.WriteLine("1-вывести инфомацию");
-                Console.WriteLine("2-вывести всех студентов одного учебного заведения");
-                Console.WriteLine("3-вывести отдельного студента");
-                Console.WriteLine("4-расчитать степендию студента");
-                Console.WriteLine("5-завершить программу");
-                menu=Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("1-вывести информацтю о студенте");
+                Console.WriteLine("2-проставить средний балл");
+                Console.WriteLine("3-вывести информацию о преподавателе");
+                Console.WriteLine("4-внести важную информацию о преподавателе");
+                Console.WriteLine("5-вывести  информацию о ректоре");
+                Console.WriteLine("6-внести важную инвормацию о ректоре");
+                Console.WriteLine("7-завершить программу");
+                menu = Convert.ToInt32(Console.ReadLine());
                 switch (menu)
                 {
                     case 1:
                         {
-                            person.ShowInformationAll();
+                            Console.Clear();
+                            student.WriteCommonInformatoin();
+                            student.WriteUniversityInformation();
+                            student.WriteRaitingsAndScholarship();
                             break;
                         }
                     case 2:
                         {
-                            person.StudentInformationForOneUniversity();
+                            Console.Clear();
+                            Console.WriteLine("Введите средний балл:");
+                            student.MiddleMark = Convert.ToDouble(Console.ReadLine());
                             break;
                         }
                     case 3:
                         {
-                            person.ShowInformationOne();
+                            Console.Clear();
+                            teacher.WriteCommonInformatoin ();
+                            teacher.WriteUniversityInformation();
+                            teacher.WriteImportantInformation();
                             break;
                         }
                     case 4:
                         {
-                            person.CalculateTheScholarshipOfOneStudent();
+                            Console.Clear();
+                            teacher.EnterImportantInformation();
                             break;
                         }
-                    case 5: return;
-                    default:
+                    case 5:
                         {
                             Console.Clear();
-                            Console.WriteLine("Введите число ещё раз:");
-                            menu=Convert.ToInt32(Console.ReadLine());
+                            rector.WriteCommonInformatoin();
+                            rector.WriteUniversityInformation();
+                            rector.WriteImportantInformation();
                             break;
                         }
+                    case 6:
+                        {
+                            Console.Clear();
+                            rector.EnterImportantInformation ();
+                            break;
+                        }
+                    case 7: return;
+                    default:return;
+                        
                 }
             }
+
+
         }
+
     }
 }
+
