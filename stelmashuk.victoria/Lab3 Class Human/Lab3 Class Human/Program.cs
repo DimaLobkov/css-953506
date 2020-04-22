@@ -174,7 +174,7 @@ namespace human
         public void GetInfo3(int weight, int height)//расчет индекса массы тела и вывод информации о результате
         {
             int index;
-            index = weight / (height / 100);
+            index = weight / (height * height / 100 * 100);
             if (index < 16)
             {
                 Console.WriteLine("Ярко выраженный дефицит массы тела");
