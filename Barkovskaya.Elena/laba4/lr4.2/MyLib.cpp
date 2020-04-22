@@ -8,7 +8,7 @@ extern "C" double __declspec(dllexport) __stdcall SquareRect(double Side1, doubl
 	return Side1 * Side2;
 }
 
-extern "C" double __declspec(dllexport) __stdcall SquareTr(double Side1, double Side2)
+extern "C" double __declspec(dllexport) __stdcall SquareTr(double Side, double Height)
 {
-	return Side1 * Side2 * 0.5;
+	return Side * Height * 0.5;
 }
