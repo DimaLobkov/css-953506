@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Lab3
 {
@@ -14,7 +14,7 @@ namespace Lab3
                 Console.WriteLine("1.Create a new firearm" +
                     "\n2.Shoot a firearm" +
                     "\n3.Realod a firearm" +
-                    "\n4.Info about gun" +
+                    "\n4.Info about firearm" +
                     "\n5.Switch the safety" +
                     "\n6.Switch mode" +
                     "\n7.Change info" +
@@ -51,13 +51,13 @@ namespace Lab3
                         }
                     case 2:
                         {
-                            if (Gun.Safety)
+                            if (Gun.IsSafetyOn)
                             {
                                 Console.WriteLine("Turn the safety off before shooting");
                             }
                             else
                             {
-                                while (!Gun.Reload)
+                                while (Gun.IsReloaded)
                                 {
                                     Gun.Shoot();
                                 }
@@ -76,7 +76,7 @@ namespace Lab3
                             }
                             if(a == 1)
                             {
-                                Gun.Reload = false;
+                                Gun.ReloadFirearm(Gun.MaxAmmo);
                             }
                             else if (a == 2)
                             {
@@ -92,6 +92,7 @@ namespace Lab3
                         }
                     case 4:
                         {
+                            Firearm.GetGeneralInfo();
                             Gun.GetInfo();
                             break;
                         }
@@ -108,13 +109,13 @@ namespace Lab3
                             {
                                 case 1:
                                     {
-                                        Gun.Safety = false;
+                                        Gun.IsSafetyOn = false;
                                         Console.WriteLine("You've got the safety off");
                                         break;
                                     }
                                 case 2:
                                     {
-                                        Gun.Safety = true;
+                                        Gun.IsSafetyOn = true;
                                         Console.WriteLine("You've got the safety on");
                                         break;
                                     }
@@ -135,17 +136,17 @@ namespace Lab3
                             {
                                 case 1:
                                     {
-                                        Gun[0] = true;
+                                        Gun["Single"] = true;
                                         break;
                                     }
                                 case 2:
                                     {
-                                        Gun[1] = true;
+                                        Gun["Birst"] = true;
                                         break;
                                     }
                                 case 3:
                                     {
-                                        Gun[2] = true;
+                                        Gun["Auto"] = true;
                                         break;
                                     }
                             }
