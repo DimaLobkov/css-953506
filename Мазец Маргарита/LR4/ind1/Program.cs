@@ -25,16 +25,36 @@ namespace Pudge
                         {
                             switch (i)
                             {
-                                case 48: Console.WriteLine(") "); break;
-                                case 49: Console.WriteLine("! "); break;
-                                case 50: Console.WriteLine("@ "); break;
-                                case 51: Console.WriteLine("# "); break;
-                                case 52: Console.WriteLine("$ "); break;
-                                case 53: Console.WriteLine("% "); break;
-                                case 54: Console.WriteLine("^ "); break;
-                                case 55: Console.WriteLine("& "); break;
-                                case 56: Console.WriteLine("* "); break;
-                                case 57: Console.WriteLine("( "); break;
+                                case 48: 
+                                    Console.WriteLine(") "); 
+                                    break;
+                                case 49: 
+                                    Console.WriteLine("! ");
+                                    break;
+                                case 50: 
+                                    Console.WriteLine("@ ");
+                                    break;
+                                case 51: 
+                                    Console.WriteLine("# "); 
+                                    break;
+                                case 52: 
+                                    Console.WriteLine("$ ");
+                                    break;
+                                case 53: 
+                                    Console.WriteLine("% "); 
+                                    break;
+                                case 54: 
+                                    Console.WriteLine("^ "); 
+                                    break;
+                                case 55: 
+                                    Console.WriteLine("& "); 
+                                    break;
+                                case 56: 
+                                    Console.WriteLine("* "); 
+                                    break;
+                                case 57: 
+                                    Console.WriteLine("( "); 
+                                    break;
                                 case 160:
                                     if (!isShift)
                                     {
@@ -49,17 +69,39 @@ namespace Pudge
                                         isShift = true;
                                     }
                                     break;
-                                case 186: Console.WriteLine(": "); break;
-                                case 187: Console.WriteLine("+ "); break;
-                                case 188: Console.WriteLine("< "); break;
-                                case 189: Console.WriteLine("_ "); break;
-                                case 190: Console.WriteLine("> "); break;
-                                case 191: Console.WriteLine("? "); break;
-                                case 192: Console.WriteLine("~ "); break;
-                                case 219: Console.WriteLine("{ "); break;
-                                case 220: Console.WriteLine("| "); break;
-                                case 221: Console.WriteLine("} "); break;
-                                case 222: Console.WriteLine('"' + " "); break;
+                                case 186: 
+                                    Console.WriteLine(": "); 
+                                    break;
+                                case 187: 
+                                    Console.WriteLine("+ "); 
+                                    break;
+                                case 188: 
+                                    Console.WriteLine("< "); 
+                                    break;
+                                case 189: 
+                                    Console.WriteLine("_ "); 
+                                    break;
+                                case 190: 
+                                    Console.WriteLine("> "); 
+                                    break;
+                                case 191: 
+                                    Console.WriteLine("? "); 
+                                    break;
+                                case 192: 
+                                    Console.WriteLine("~ "); 
+                                    break;
+                                case 219: 
+                                    Console.WriteLine("{ "); 
+                                    break;
+                                case 220: 
+                                    Console.WriteLine("| "); 
+                                    break;
+                                case 221: 
+                                    Console.WriteLine("} "); 
+                                    break;
+                                case 222: 
+                                    Console.WriteLine('"' + " "); 
+                                    break;
                                 default:
                                     if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z'))
                                     {
@@ -80,33 +122,87 @@ namespace Pudge
                             isShift = false;
                             switch (i)
                             {
-                                case 8: Console.WriteLine("Backspace "); break;
-                                case 9: Console.WriteLine("Tab "); break;
-                                case 13: Console.WriteLine("Enter "); break;
-                                case 20: Console.WriteLine("CapsLock "); break;
-                                case 22: Console.WriteLine("' "); break;
-                                case 27: Console.WriteLine("Escape "); break;
-                                case 32: Console.WriteLine("Space "); break;
-                                case 37: Console.WriteLine("pgLeft "); break;
-                                case 38: Console.WriteLine("pgUp "); break;
-                                case 39: Console.WriteLine("pgRight "); break;
-                                case 40: Console.WriteLine("pgDown "); break;
-                                case 91: Console.WriteLine("Win "); break;
-                                case 162: Console.WriteLine("leftCtrl "); break;
-                                case 163: Console.WriteLine("rightCtrl "); break;
-                                case 164: Console.WriteLine("leftAlt "); break;
-                                case 165: Console.WriteLine("rightAlt "); break;
-                                case 186: Console.WriteLine("; "); break;
-                                case 187: Console.WriteLine("= "); break;
-                                case 188: Console.WriteLine(", "); break;
-                                case 189: Console.WriteLine("- "); break;
-                                case 190: Console.WriteLine(". "); break;
-                                case 191: Console.WriteLine("/ "); break;
-                                case 192: Console.WriteLine("` "); break;
-                                case 219: Console.WriteLine("[ "); break;
-                                case 220: Console.WriteLine(@"\ "); break;
-                                case 221: Console.WriteLine("] "); break;
-                                case 222: Console.WriteLine("' "); break;
+                                case 8: 
+                                    Console.WriteLine("Backspace "); 
+                                    break;
+                                case 9: 
+                                    Console.WriteLine("Tab "); 
+                                    break;
+                                case 13: 
+                                    Console.WriteLine("Enter "); 
+                                    break;
+                                case 20: 
+                                    Console.WriteLine("CapsLock "); 
+                                    break;
+                                case 22: 
+                                    Console.WriteLine("' "); 
+                                    break;
+                                case 27: 
+                                    Console.WriteLine("Escape "); 
+                                    break;
+                                case 32: 
+                                    Console.WriteLine("Space "); 
+                                    break;
+                                case 37: 
+                                    Console.WriteLine("pgLeft ");
+                                    break;
+                                case 38: 
+                                    Console.WriteLine("pgUp "); 
+                                    break;
+                                case 39: 
+                                    Console.WriteLine("pgRight ");
+                                    break;
+                                case 40: 
+                                    Console.WriteLine("pgDown "); 
+                                    break;
+                                case 91: 
+                                    Console.WriteLine("Win "); 
+                                    break;
+                                case 162: 
+                                    Console.WriteLine("leftCtrl "); 
+                                    break;
+                                case 163:
+                                    Console.WriteLine("rightCtrl ");
+                                    break;
+                                case 164: 
+                                    Console.WriteLine("leftAlt "); 
+                                    break;
+                                case 165: 
+                                    Console.WriteLine("rightAlt "); 
+                                    break;
+                                case 186: 
+                                    Console.WriteLine("; "); 
+                                    break;
+                                case 187: 
+                                    Console.WriteLine("= "); 
+                                    break;
+                                case 188: 
+                                    Console.WriteLine(", "); 
+                                    break;
+                                case 189: 
+                                    Console.WriteLine("- "); 
+                                    break;
+                                case 190: 
+                                    Console.WriteLine(". "); 
+                                    break;
+                                case 191: 
+                                    Console.WriteLine("/ "); 
+                                    break;
+                                case 192: 
+                                    Console.WriteLine("` "); 
+                                    break;
+                                case 219: 
+                                    Console.WriteLine("[ "); 
+                                    break;
+                                case 220: 
+                                    Console.WriteLine(@"\ "); 
+                                    break;
+                                case 221: 
+                                    Console.WriteLine("] "); 
+                                    break;
+                                case 222: 
+                                    Console.WriteLine("' "); 
+                                    break;
                                 default:
                                     if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z') || (i >= '0' && i <= '9'))
                                     {
