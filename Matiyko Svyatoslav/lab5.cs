@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 
 namespace _3
@@ -6,7 +6,6 @@ namespace _3
     abstract class Soul
     {
         protected string name, surname, age;
-
         public abstract void CreateMe(); 
         public abstract void YourSocialStatus();
     }
@@ -16,7 +15,6 @@ namespace _3
         protected string placeOfLiving;
         protected int livingWage;
         protected string socialStatus;
-
 
         public Human(string name, string surname, string age)
         {
@@ -33,7 +31,7 @@ namespace _3
 
         public virtual void PlaceOfLiving(){}
 
-         public static void Id ()
+        public static void Id ()
         {            
             Random rand = new Random();
             string[] id = new string[6];
@@ -76,7 +74,6 @@ namespace _3
                 socialStatus = "богат";
             }
         }
-
     }
 
 
@@ -296,7 +293,7 @@ namespace _3
         int _timeWork;
         int _workExperience;
 
-         public WorkMan(string name, string surname, string age) : base(name, surname, age){}
+        public WorkMan(string name, string surname, string age) : base(name, surname, age){}
 
         public void NameOfWork()
         {
@@ -346,8 +343,8 @@ namespace _3
         {
             Console.Clear();
             Console.WriteLine($"Информация о сотруднике:\n1.фамилия и имя: {surname} {name}\n2.проживает: {placeOfLiving}\n3.место работы: {_nameOfWork}\n4.зп: {_salary}{_currency}"+
-           $"\n5.время работы: {_timeWork} часов в день\n6.опыт работы: {_workExperience} года\n7.соц.статус: {socialStatus}");
-           Human.Id();
+            $"\n5.время работы: {_timeWork} часов в день\n6.опыт работы: {_workExperience} года\n7.соц.статус: {socialStatus}");
+            Human.Id();
         }
     }
 
@@ -385,7 +382,6 @@ namespace _3
                     schoolBoy.YourAverageMark();
                     schoolBoy.YourSocialStatus();
                     schoolBoy.GetInfoAboutSchoolBoy();
-                    
                     break;
 
                 case 2:
@@ -409,7 +405,6 @@ namespace _3
                     workMan.GetInfoAboutWorkMan();
                     break;
             }
-
             Console.ReadLine();
         }
     }    
