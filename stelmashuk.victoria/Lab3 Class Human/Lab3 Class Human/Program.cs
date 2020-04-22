@@ -171,7 +171,7 @@ namespace human
             }
         }
 
-        public void GetInfo3(int weight, int height)//расчет индекса массы тела и вывод информации о результате
+        public void GetInfo3(int weight, double height)//расчет индекса массы тела и вывод информации о результате
         {
             int index;
             index = weight / (height * height / 100 * 100);
