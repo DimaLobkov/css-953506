@@ -1,183 +1,150 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Lab3
-{
+{               
     class Firearm
     {
-        //----------------Поля
-        private string _model;
-        private string _caliber;
-        private uint _maxAmmo;
-        private uint _ammoInClip;
-        private bool _reload;
-        private bool _safety = true;
-        private static string _generalInfo = "Firearm weapon use ammo to shoot";
-        private bool[] _mode = new bool[3] { true, false, false };
+        private bool ModeSingle { get; set; } = true;
+        private bool ModeBirst { get; set; } = false;
+        private bool ModeAuto { get; set; } = false;
+        public uint AmmoInClip { get; set; }
+        public uint MaxAmmo { get; set; }
+        public string Model { get; set; }
+        public string Caliber { get; set; }
+        public bool IsReloaded { get; set; }
+        public bool IsSafetyOn { get; set; } = true;
         
-        //----------------Свойства
-        public bool Reload
+        //Индексатор
+        public bool this[string mode]
         {
             get
             {
-                return _reload;
+                switch(mode)
+                {
+                    case "Single":
+                        {
+                            return ModeSingle;
+                        }
+                    case "Birst":
+                        {
+                            return ModeBirst;
+                        }
+                    case "Auto":
+                        {
+                            return ModeAuto;
+                        }
+                    default:
+                        {
+                            return false;
+                        }
+                }
             }
             set
             {
-                _ammoInClip = _maxAmmo;
-                _reload = value;
-            }
-        }
-        
-        public bool Safety
-        {
-            get
-            {
-                return _safety;
-            }
-            set
-            {
-                _safety = value;
-            }
-        }
-        
-        public string Model
-        {
-            get
-            {
-                return _model;
-            }
-            set
-            {
-                _model = value;
-            }
-        }
-        
-        public string Caliber
-        {
-            get
-            {
-                return _caliber;
-            }
-            set
-            {
-                _caliber = value;
-            }
-        }
-        
-        public uint MaxAmmo
-        {
-            get
-            {
-                return _maxAmmo;
-            }
-            set
-            {
-                _maxAmmo = value;
-            }
-        }
-        
-        public uint AmmoInClip
-        {
-            get
-            {
-                return _ammoInClip;
-            }
-            set
-            {
-                _ammoInClip = value;
-                _reload = _ammoInClip == 0;
-            }
-        }
-        
-        //----------------Индексатор
-        public bool this[int index]
-        {
-            get
-            {
-                return _mode[index];
-            }
-            set
-            {
-                _mode[0] = _mode[1] = _mode[2] = false;
-                _mode[index] = value;
+                ModeSingle = ModeBirst = ModeAuto = false;
+                switch (mode)
+                {
+                    case "Single":
+                        {
+                            ModeSingle = value;
+                            break;
+                        }
+                    case "Birst":
+                        {
+                            ModeBirst = value;
+                            break;
+                        }
+                    case "Auto":
+                        {
+                            ModeAuto = value;
+                            break;
+                        }
+                }
             }
         }
         
         //----------------Конструкторы
         public Firearm(string model, string caliber, uint maxAmmo, uint ammoInClip)
         {
-            _model = model;
-            _caliber = caliber;
-            _maxAmmo = maxAmmo;
-            _ammoInClip = maxAmmo < ammoInClip ? maxAmmo : ammoInClip;
+            Model = model;
+            Caliber = caliber;
+            MaxAmmo = maxAmmo;
+            AmmoInClip = maxAmmo < ammoInClip ? maxAmmo : ammoInClip;
+            IsReloaded = AmmoInClip != 0;
         }
         
         public Firearm()
         {
-            _model = "M16";
-            _caliber = "5,56";
-            _maxAmmo = 30;
-            _ammoInClip = 30;
+            Model = "M16";
+            Caliber = "5,56";
+            MaxAmmo = 30;
+            AmmoInClip = 30;
+            IsReloaded = true;
         }
         
         //----------------Методы
         public void ReloadFirearm(uint ammo)
         {
-            _ammoInClip = ammo > _maxAmmo ? _maxAmmo : ammo;
-            _reload = false;
+            AmmoInClip = ammo > MaxAmmo ? MaxAmmo : ammo;
+            IsReloaded = true;
         }
         
         public void Shoot()
         {
-            if (_ammoInClip > 0)
+            if (AmmoInClip > 0)
             {
-                if (_mode[0])
+                if (ModeSingle)
                 {
-                    _ammoInClip -= 1;
-                    Console.WriteLine($"PAU! Ammo in clip: {_ammoInClip}/{_maxAmmo}");
+                    AmmoInClip -= 1;
+                    Console.WriteLine($"PAU! Ammo in clip: {AmmoInClip}/{MaxAmmo}");
                 }
-                if(_mode[1])
+                if (ModeBirst)
                 {
-                    if(_ammoInClip > 2)
+                    if (AmmoInClip > 2)
                     {
-                        _ammoInClip -= 3;
-                        Console.WriteLine($"PAU! PAU! PAU! Ammo in clip: {_ammoInClip}/{_maxAmmo}");
+                        AmmoInClip -= 3;
+                        Console.WriteLine($"PAU! PAU! PAU! Ammo in clip: {AmmoInClip}/{MaxAmmo}");
                     }
-                    else if(_ammoInClip == 2)
+                    else if (AmmoInClip == 2)
                     {
-                        _ammoInClip -= 2;
-                        Console.WriteLine($"PAU! PAU! Ammo in clip: {_ammoInClip}/{_maxAmmo}");
+                        AmmoInClip -= 2;
+                        Console.WriteLine($"PAU! PAU! Ammo in clip: {AmmoInClip}/{MaxAmmo}");
                     }
-                    else if(_ammoInClip == 1)
+                    else
                     {
-                        _ammoInClip -= 1;
-                        Console.WriteLine($"PAU! Ammo in clip: {_ammoInClip}/{_maxAmmo}");
+                        AmmoInClip -= 1;
+                        Console.WriteLine($"PAU! Ammo in clip: {AmmoInClip}/{MaxAmmo}");
                     }
                 }
-                if(_mode[2])
+                if (ModeAuto)
                 {
-                    _ammoInClip -= 1;
-                    Console.Write($"PAU! {_ammoInClip}/{_maxAmmo} ");
+                    AmmoInClip -= 1;
+                    Console.Write($"PAU! {AmmoInClip}/{MaxAmmo} ");
                 }
             }
             else
             {
-                _reload = true;
-            }    
+                IsReloaded = false;
+            }
+        }
+        
+        public static void GetGeneralInfo()
+        {
+            Console.WriteLine("A firearm is a gun designed to be readily carried and used by a single individual." +
+                "\nModern firearms can be described by their caliber, model and by the type of action employed.");
         }
         
         public void GetInfo()
         {
-            Console.WriteLine($"{_generalInfo}" +
-                $"\nModel of your weapon: {_model}" +
-                $"\nCaliber of your weapon: {_caliber}" +
-                $"\nMax ammo in a clip: {_maxAmmo}" +
-                $"\nCurrent ammo in a clip: {_ammoInClip}");
+            Console.WriteLine($"Model of your weapon: {Model}" +
+                $"\nCaliber of your weapon: {Caliber}" +
+                $"\nMax ammo in a clip: {MaxAmmo}" +
+                $"\nCurrent ammo in a clip: {AmmoInClip}");
         }
         
         //----------------Деструктор
-        ~Firearm() {}
+        ~Firearm() { }
     }
 }
