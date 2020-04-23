@@ -11,7 +11,6 @@ namespace ind2
         public static extern double Angle(double amside);     
         static void Main(string[] args)
         {
-
              Console.WriteLine("Введите длину стороны правильного треугольника");
              double side = Convert.ToInt64(Console.ReadLine());
              Console.WriteLine("площадь=",+Area(side));
