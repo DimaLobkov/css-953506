@@ -505,7 +505,6 @@ namespace _5
             if(select == 1)
             {
                 sportsman = new Jumper(firstname, lastname, middlename, record);
-                sportsman.ShowInfo();
                 sportsman.KindOfSports = "Jumper";
                 sportsman.ChangeParameters();
                 sportsman.PersonalRecord(sportsman);
@@ -534,6 +533,8 @@ namespace _5
                 int.TryParse(Console.ReadLine(), out birthYear);
                 sportsman.Age = birthYear;
             }
+            
+            sportsman.ShowInfo();
         }
     }
 }
